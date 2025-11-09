@@ -1,0 +1,20 @@
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.bcf
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Backup files
+*~
+*.bak
+*.backup
+
+# OS-specific
+.DS_Store
