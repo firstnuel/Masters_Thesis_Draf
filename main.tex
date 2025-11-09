@@ -1,0 +1,77 @@
+%!TEX TS-program = xelatex
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{calc}
+%\usepackage{lipsum}
+\usepackage{tol}
+\usepackage[titletoc, title]{appendix}
+\usepackage{tocloft}
+\usepackage{fancyvrb}
+
+\usepackage[font={small, sf}, labelfont=bf]{caption}
+\usepackage{chngcntr}
+\counterwithout{figure}{section}
+\addbibresource{references.bib} %gradu.bib
+
+%%%%%%%%%%%%%%%%%%%
+%%%%TITLE PAGE%%%%%
+%%%%%%%%%%%%%%%%%%%
+\author{Emmanuel Ikwunna}
+%\email{} %Can be enabled from tol.sty
+%\studentno{} %Can be enabled from tol.sty
+\title{Explainable AI for Log-Based Anomaly Detection in Security Monitoring: Reasoning Pipelines and Cross-Dataset Evaluation.}
+\institute{University Of Oulu}
+\faculty{Faculty of Information Technology and Electrical Engineering}
+\course{Master's Thesis}
+\hypersetupdefault
+
+%%dont hyphen
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\begin{document}
+
+\maketitle
+
+\setcounter{page}{2}
+
+\input{chapters/abstract}
+
+\newpage
+
+\input{chapters/foreward}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%TABLE OF CONTENTS%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\addcontentsline{toc}{section}{Contents}
+\addtocontents{toc}{\protect\thispagestyle{fancy}} % to let the page number be on the right place
+
+\newpage
+
+\input{chapters/introduction_ch1}
+
+\newpage
+
+\input{chapters/lit_review_ch2}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%REFERENCES%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%\section*{References}
+%\addcontentsline{toc}{section}{References}
+\printbibliography[heading=bibintoc]
+
+\nocite{*}
+
+\newpage
+\begin{appendices}
+	\input{chapters/appendices}
+\end{appendices}
+
+
+\end{document}

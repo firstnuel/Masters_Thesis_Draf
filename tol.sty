@@ -1,0 +1,189 @@
+% Style file for Department of Information Processing Science, University of Oulu
+% Modified for modern thesis/document formatting with numeric citations
+%
+% Usage:
+% 1) Copy this file and oylogo.png to your document directory
+% 2) Add \usepackage{tol} to your tex document
+% 3) Define \author, \email, \course, \studentno and \title
+% 4) Call \hypersetupdefault for PDF metadata
+% 5) Call \maketitle after \begin{document}
+% 6) Call \addbibresource{yourbib.bib} to add your bibliography
+% 7) Use \cite{key} for citations which will appear as [1]
+%
+% Github: https://github.com/msrn/tol-latex-template
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{chngpage}
+\usepackage{calc}
+
+%%%%%%%%%%%%%%%%%
+%%%%LANGUAGE%%%%%
+%%%%%%%%%%%%%%%%%
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%%%%%%%%%%%%%%%%%
+%%%%CITATIONS%%%%
+%%%%%%%%%%%%%%%%%
+\usepackage{csquotes}
+\usepackage[backend=biber, style=numeric, sorting=none, maxbibnames=99]{biblatex}
+% sorting=none: citations numbered by order of appearance
+% maxbibnames=99: show all authors in bibliography
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%GENERAL STYLE%%%%
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4paper,margin=2cm,left=4cm]{geometry}
+\usepackage{parskip}
+\setlength{\parskip}{12pt}
+\setlength{\parindent}{0pt}
+
+% Page headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[RE,RO]{\thepage}
+\setlength{\headheight}{24pt}
+
+%%%%%%%%%%%%%
+%%%%FONTS%%%%
+%%%%%%%%%%%%%
+\usepackage{fontspec}
+\usepackage{titlesec}
+
+% Windows fonts (change for Linux if needed)
+\setmainfont[Ligatures={TeX},Mapping=tex-text]{Times New Roman}
+\setsansfont[Ligatures={TeX},Mapping=tex-text]{Arial}
+\setmonofont[Ligatures={TeX},Mapping=tex-text, Scale=0.8]{Courier New}
+
+% For Linux, uncomment these instead:
+% \setmainfont[Ligatures={TeX},Mapping=tex-text]{Liberation Serif}
+% \setsansfont[Ligatures={TeX},Mapping=tex-text]{Liberation Sans}
+% \setmonofont[Ligatures={TeX},Mapping=tex-text, Scale=0.8]{Liberation Mono}
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%HEADING STYLES%%%
+%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{4}
+
+% Section (Heading 0)
+\titleformat*{\section}{\sffamily\Large\bfseries}
+\titlespacing*{\section}{0pt}{24pt plus 4pt minus 2pt}{12pt plus 2pt minus 2pt}
+
+% Subsection (Heading 1)
+\titleformat*{\subsection}{\sffamily\large\bfseries}
+\titlespacing*{\subsection}{0pt}{18pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+
+% Subsubsection (Heading 2)
+\titleformat*{\subsubsection}{\sffamily\normalsize\bfseries}
+\titlespacing*{\subsubsection}{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+
+% Paragraph (Heading 3)
+\titleformat{\paragraph}[hang]{\sffamily\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+
+% Subparagraph (Heading 4)
+\titleformat{\subparagraph}[hang]{\sffamily\normalsize\itshape}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%TABLE OF CONTENTS%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tocloft}
+
+\renewcommand*\cfttoctitlefont{\sffamily\Large\bfseries}
+\renewcommand{\cftaftertoctitleskip}{24pt}
+\setcounter{tocdepth}{3}
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftbeforesecskip}{6pt}
+\renewcommand{\cftdotsep}{1}
+
+% Subsection formatting in TOC
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+
+% Subsubsection formatting in TOC
+\renewcommand{\cftsubsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecpagefont}{\normalfont}
+
+%%%%%%%%%%%%%%%%%%%%
+%%%%TITLE PAGE %%%%%
+%%%%%%%%%%%%%%%%%%%%
+\def\course#1{\def\@course{#1}}
+\def\institute#1{\def\@institute{#1}}
+\def\faculty#1{\def\@faculty{#1}}
+\def\email#1{\def\@email{#1}}
+\def\studentno#1{\def\@studentno{#1}}
+
+\renewcommand{\maketitle}{%
+    \begin{titlepage}
+        \thispagestyle{empty}
+        \begin{adjustwidth}{-2cm}{0cm}
+            \vspace*{4.7cm}
+            
+            % Logo
+            \begin{center}
+                \includegraphics[height=1.11in,width=2.44in]{style/oylogo.png} \\
+                \vspace*{2.5cm}
+                \begin{LARGE}
+                    \sffamily\bfseries
+                    \@title
+                \end{LARGE}
+            \end{center}
+            
+            \vfill
+            
+            % Metadata
+            \begin{flushright}
+                \parbox[t]{7cm}{
+                    \raggedright
+                    \@institute \\
+                    \@faculty \\
+                    \@course \\
+                    \vspace{0.5cm}
+                    \@author \\
+                    \@date
+                }
+            \end{flushright}
+            \vspace{1cm}
+        \end{adjustwidth}
+    \end{titlepage}
+    \cleardoublepage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%PDF SETTINGS %%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\def\hypersetupdefault{%
+    \hypersetup{
+        pdfauthor={\@author},
+        pdftitle={\@course\space-\space\@title},
+        colorlinks=true,
+        linkcolor=black,
+        citecolor=black,
+        urlcolor=black,
+        pdfborder={0 0 0},
+    }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%USEFUL PACKAGES%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+% Uncomment as needed:
+% \usepackage{booktabs}        % Better tables
+% \usepackage{caption}         % Better captions
+% \usepackage{subcaption}      % Subfigures
+% \usepackage{listings}        % Code listings
+% \usepackage{algorithm}       % Algorithms
+% \usepackage{algorithmic}     % Algorithm formatting
+% \usepackage{amsmath}         % Advanced math
+% \usepackage{amssymb}         % Math symbols
+% \usepackage{siunitx}         % SI units
+
+\endinput
