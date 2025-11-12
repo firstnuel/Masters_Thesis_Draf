@@ -1,0 +1,1573 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{almodovar-etal-2022-language}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=e7d0850d3fe5d8db6f3c332b27328ec0}{%
+           family={Almodovar},
+           familyi={A\bibinitperiod},
+           given={Crispin},
+           giveni={C\bibinitperiod}}}%
+        {{hash=bc72c368e7ec55fe1d83d2062196d44d}{%
+           family={Sabrina},
+           familyi={S\bibinitperiod},
+           given={Fariza},
+           giveni={F\bibinitperiod}}}%
+        {{hash=e241322855010d1b2d6f2aa9a8c83c02}{%
+           family={Karimi},
+           familyi={K\bibinitperiod},
+           given={Sarvnaz},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0bfe8e6c2e225aa5b1b9c3f422e66652}{%
+           family={Azad},
+           familyi={A\bibinitperiod},
+           given={Salahuddin},
+           giveni={S\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=7aa6109b7779a238fa491181aed1ca6f}{%
+           family={Parameswaran},
+           familyi={P\bibinitperiod},
+           given={Pradeesh},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f1d173a4c26b768a57d69b9cc77b9d12}{%
+           family={Biggs},
+           familyi={B\bibinitperiod},
+           given={Jennifer},
+           giveni={J\bibinitperiod}}}%
+        {{hash=27280dca01c9d89673cce4cc2e9e6233}{%
+           family={Powers},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Adelaide, Australia}%
+      }
+      \list{publisher}{1}{%
+        {Australasian Language Technology Association}%
+      }
+      \strng{namehash}{190cc3e9ddb3fad7d94284fdd59303b9}
+      \strng{fullhash}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{fullhashraw}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{bibnamehash}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{authorbibnamehash}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{authornamehash}{190cc3e9ddb3fad7d94284fdd59303b9}
+      \strng{authorfullhash}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{authorfullhashraw}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{editorbibnamehash}{928980dfc3052b2872fee3cce9d68c67}
+      \strng{editornamehash}{928980dfc3052b2872fee3cce9d68c67}
+      \strng{editorfullhash}{928980dfc3052b2872fee3cce9d68c67}
+      \strng{editorfullhashraw}{928980dfc3052b2872fee3cce9d68c67}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 20th Annual Workshop of the Australasian Language Technology Association}
+      \field{month}{12}
+      \field{title}{Can Language Models Help in System Security? Investigating Log Anomaly Detection using {BERT}}
+      \field{year}{2022}
+      \field{pages}{139\bibrangedash 147}
+      \range{pages}{9}
+      \verb{urlraw}
+      \verb https://aclanthology.org/2022.alta-1.19/
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/2022.alta-1.19/
+      \endverb
+    \endentry
+    \entry{DeepLog}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=6989be56341f6cbc885766e0dd067a4b}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod}}}%
+        {{hash=65dc7c16174f4ebc47ccdc01e74939f2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Feifei},
+           giveni={F\bibinitperiod}}}%
+        {{hash=5794422819f20abab5416b26ef567f74}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Guineng},
+           giveni={G\bibinitperiod}}}%
+        {{hash=d353c169cbdb6171b51ab4026427e690}{%
+           family={Srikumar},
+           familyi={S\bibinitperiod},
+           given={Vivek},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Dallas, Texas, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{9c332f1edf158a734f1c6bb7e4700d17}
+      \strng{fullhash}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{fullhashraw}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{bibnamehash}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{authorbibnamehash}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{authornamehash}{9c332f1edf158a734f1c6bb7e4700d17}
+      \strng{authorfullhash}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{authorfullhashraw}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security}
+      \field{isbn}{9781450349468}
+      \field{series}{CCS '17}
+      \field{title}{DeepLog: Anomaly Detection and Diagnosis from System Logs through Deep Learning}
+      \field{year}{2017}
+      \field{pages}{1285\bibrangedash 1298}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1145/3133956.3134015
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3133956.3134015
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3133956.3134015
+      \endverb
+      \keyw{anomaly detection,deep learning,log data analysis}
+    \endentry
+    \entry{aws_log_files}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=3eb2c1a57a8160029f036e3dcbf84bf1}{%
+           family={{Amazon Web Services}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3eb2c1a57a8160029f036e3dcbf84bf1}
+      \strng{fullhash}{3eb2c1a57a8160029f036e3dcbf84bf1}
+      \strng{fullhashraw}{3eb2c1a57a8160029f036e3dcbf84bf1}
+      \strng{bibnamehash}{3eb2c1a57a8160029f036e3dcbf84bf1}
+      \strng{authorbibnamehash}{3eb2c1a57a8160029f036e3dcbf84bf1}
+      \strng{authornamehash}{3eb2c1a57a8160029f036e3dcbf84bf1}
+      \strng{authorfullhash}{3eb2c1a57a8160029f036e3dcbf84bf1}
+      \strng{authorfullhashraw}{3eb2c1a57a8160029f036e3dcbf84bf1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://aws.amazon.com/what-is/log-files/}}
+      \field{note}{Accessed: 2025-11-11}
+      \field{title}{What are Log Files? - Log Files Explained - AWS}
+      \field{year}{2025}
+    \endentry
+    \entry{LogFormer}{misc}{}{}
+      \name{author}{10}{}{%
+        {{hash=2843e0e5227166590908d508f0b9d43f}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Hongcheng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=5a1cb92dc789e714fb5aaf67809119a6}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1e237b158d4ff3abf472e9ba2d6c9716}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jiaheng},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3a19f236565e5de91f4d0ebe6acc606a}{%
+           family={Bai},
+           familyi={B\bibinitperiod},
+           given={Jiaqi},
+           giveni={J\bibinitperiod}}}%
+        {{hash=87c95fe0df4e59cd5345af330075e8e2}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Boyang},
+           giveni={B\bibinitperiod}}}%
+        {{hash=5756883fe146f8c0788104bc4fc41e77}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zhoujun},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=39b0c9140b25994b04f2d495331e9b95}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Tieqiao},
+           giveni={T\bibinitperiod}}}%
+        {{hash=4ac36eed64badd6f195e86aeecd037a7}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Bo},
+           giveni={B\bibinitperiod}}}%
+        {{hash=be24391189c0d912a6b521ec2071c469}{%
+           family={peng},
+           familyi={p\bibinitperiod},
+           given={Junran},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9632951617f2079b7d7fa6a955341020}{%
+           family={Tian},
+           familyi={T\bibinitperiod},
+           given={Qi},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{c60ad2dd395c5a71164c08bfef6f1431}
+      \strng{fullhash}{135beec035cce6f0e135eaa6061c456c}
+      \strng{fullhashraw}{135beec035cce6f0e135eaa6061c456c}
+      \strng{bibnamehash}{135beec035cce6f0e135eaa6061c456c}
+      \strng{authorbibnamehash}{135beec035cce6f0e135eaa6061c456c}
+      \strng{authornamehash}{c60ad2dd395c5a71164c08bfef6f1431}
+      \strng{authorfullhash}{135beec035cce6f0e135eaa6061c456c}
+      \strng{authorfullhashraw}{135beec035cce6f0e135eaa6061c456c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{LogFormer: A Pre-train and Tuning Pipeline for Log Anomaly Detection}
+      \field{year}{2024}
+      \verb{eprint}
+      \verb 2401.04749
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2401.04749
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2401.04749
+      \endverb
+    \endentry
+    \entry{LogCTBL}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=2fd7317b32366552b9c933df82238785}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Hong},
+           giveni={H\bibinitperiod}}}%
+        {{hash=faa5af5a2c8ad4ebf6d2c4718faa4658}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Wengang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=c020898509f1fa01020923009007eafb}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yunfei},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=27bbb9cfc0c362807babb2fb122c7cb3}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Yinghang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ecc436a022a57a6d1c904bdad0ae3181}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Weitao},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{908f010eabd842c11482ddea211d2164}
+      \strng{fullhash}{f0d53343a73f8d1f883c6c62a3e6d5e0}
+      \strng{fullhashraw}{f0d53343a73f8d1f883c6c62a3e6d5e0}
+      \strng{bibnamehash}{f0d53343a73f8d1f883c6c62a3e6d5e0}
+      \strng{authorbibnamehash}{f0d53343a73f8d1f883c6c62a3e6d5e0}
+      \strng{authornamehash}{908f010eabd842c11482ddea211d2164}
+      \strng{authorfullhash}{f0d53343a73f8d1f883c6c62a3e6d5e0}
+      \strng{authorfullhashraw}{f0d53343a73f8d1f883c6c62a3e6d5e0}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Supercomputing}
+      \field{month}{01}
+      \field{title}{LogCTBL: a hybrid deep learning model for log-based anomaly detection}
+      \field{volume}{81}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.1007/s11227-025-06926-3
+      \endverb
+    \endentry
+    \entry{europeanparliament2024cybercrime}{report}{}{}
+      \name{author}{1}{}{%
+        {{hash=c25d305ea83de23a244dd39c979ff060}{%
+           family={Parliament},
+           familyi={P\bibinitperiod},
+           given={European},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {European Parliamentary Research Service}%
+      }
+      \strng{namehash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{fullhash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{fullhashraw}{c25d305ea83de23a244dd39c979ff060}
+      \strng{bibnamehash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{authorbibnamehash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{authornamehash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{authorfullhash}{c25d305ea83de23a244dd39c979ff060}
+      \strng{authorfullhashraw}{c25d305ea83de23a244dd39c979ff060}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{According to an EU briefing, the annual global cost of cybercrime was estimated at approximately €5.5 trillion in recent years. Accessed November 9, 2025.}
+      \field{title}{Cybercrime in the EU: Threats, Trends and Policy Responses}
+      \field{type}{techreport}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.europarl.europa.eu/RegData/etudes/BRIE/2024/760356/EPRS_BRI(2024)760356_EN.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.europarl.europa.eu/RegData/etudes/BRIE/2024/760356/EPRS_BRI(2024)760356_EN.pdf
+      \endverb
+    \endentry
+    \entry{LAnoBERT}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=d925f6924f456fbdb99d0463322842ec}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Yukyung},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e2a91de1add2e29aba3bce09ae73e427}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Jina},
+           giveni={J\bibinitperiod}}}%
+        {{hash=73e2258978dd13bc53e9efc2d07acc39}{%
+           family={Kang},
+           familyi={K\bibinitperiod},
+           given={Pilsung},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{285c3b339a79bf2bb2f936df251121f1}
+      \strng{fullhash}{285c3b339a79bf2bb2f936df251121f1}
+      \strng{fullhashraw}{285c3b339a79bf2bb2f936df251121f1}
+      \strng{bibnamehash}{285c3b339a79bf2bb2f936df251121f1}
+      \strng{authorbibnamehash}{285c3b339a79bf2bb2f936df251121f1}
+      \strng{authornamehash}{285c3b339a79bf2bb2f936df251121f1}
+      \strng{authorfullhash}{285c3b339a79bf2bb2f936df251121f1}
+      \strng{authorfullhashraw}{285c3b339a79bf2bb2f936df251121f1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1568-4946}
+      \field{journaltitle}{Applied Soft Computing}
+      \field{title}{LAnoBERT: System log anomaly detection based on BERT masked language model}
+      \field{volume}{146}
+      \field{year}{2023}
+      \field{pages}{110689}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.asoc.2023.110689
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S156849462300707X
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S156849462300707X
+      \endverb
+      \keyw{Log data analysis,Anomaly detection,Transformer,BERT}
+    \endentry
+    \entry{Drain}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=7a3899b05fe89d81bde7cd496b988c16}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Pinjia},
+           giveni={P\bibinitperiod}}}%
+        {{hash=fa3d04898970f061ddb4645c25b05fca}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jieming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=94aeb96f7bbdfa5f304dc958ab7f265c}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Zibin},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=89afa2af91c8dfa048fdcec740d6684e}{%
+           family={Lyu},
+           familyi={L\bibinitperiod},
+           given={Michael\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{2114520c258cd871b6d57e1af260bd8e}
+      \strng{fullhash}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{fullhashraw}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{bibnamehash}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{authorbibnamehash}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{authornamehash}{2114520c258cd871b6d57e1af260bd8e}
+      \strng{authorfullhash}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{authorfullhashraw}{d2eb43d672c0a403ae2093e9e55d495f}
+      \field{extraname}{1}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2017 IEEE International Conference on Web Services (ICWS)}
+      \field{title}{Drain: An Online Log Parsing Approach with Fixed Depth Tree}
+      \field{year}{2017}
+      \field{pages}{33\bibrangedash 40}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/ICWS.2017.13
+      \endverb
+      \keyw{Web services;Runtime;Analytical models;Data models;Training;Anomaly detection;Log parsing;Online algorithm;Log analysis;Web service management}
+    \endentry
+    \entry{Spell}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=6989be56341f6cbc885766e0dd067a4b}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod}}}%
+        {{hash=65dc7c16174f4ebc47ccdc01e74939f2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Feifei},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{6801db9da1906466b6a3f6f32f984069}
+      \strng{fullhash}{6801db9da1906466b6a3f6f32f984069}
+      \strng{fullhashraw}{6801db9da1906466b6a3f6f32f984069}
+      \strng{bibnamehash}{6801db9da1906466b6a3f6f32f984069}
+      \strng{authorbibnamehash}{6801db9da1906466b6a3f6f32f984069}
+      \strng{authornamehash}{6801db9da1906466b6a3f6f32f984069}
+      \strng{authorfullhash}{6801db9da1906466b6a3f6f32f984069}
+      \strng{authorfullhashraw}{6801db9da1906466b6a3f6f32f984069}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2016 IEEE 16th International Conference on Data Mining (ICDM)}
+      \field{title}{Spell: Streaming Parsing of System Event Logs}
+      \field{year}{2016}
+      \field{pages}{859\bibrangedash 864}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ICDM.2016.0103
+      \endverb
+      \keyw{Printing;Data mining;Data analysis;Stability analysis;Monitoring;Conferences;Batch production systems}
+    \endentry
+    \entry{robust}{misc}{}{}
+      \name{author}{5}{}{%
+        {{hash=d75a227cad3d310aa70d9b8b7e7f9403}{%
+           family={Ott},
+           familyi={O\bibinitperiod},
+           given={Harold},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e3b890eb284584d9d5a1193dede87338}{%
+           family={Bogatinovski},
+           familyi={B\bibinitperiod},
+           given={Jasmin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4be53c401da98d81fdf9441110900067}{%
+           family={Acker},
+           familyi={A\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d9978b994a9d249538eafe5324e4b19f}{%
+           family={Nedelkoski},
+           familyi={N\bibinitperiod},
+           given={Sasho},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8ef7694bfbbf1ae7761bd3c14390818c}{%
+           family={Kao},
+           familyi={K\bibinitperiod},
+           given={Odej},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{2b8b62337baa64a539298827daeb7486}
+      \strng{fullhash}{2cdcc0549fcebe4e6d9478c365753508}
+      \strng{fullhashraw}{2cdcc0549fcebe4e6d9478c365753508}
+      \strng{bibnamehash}{2cdcc0549fcebe4e6d9478c365753508}
+      \strng{authorbibnamehash}{2cdcc0549fcebe4e6d9478c365753508}
+      \strng{authornamehash}{2b8b62337baa64a539298827daeb7486}
+      \strng{authorfullhash}{2cdcc0549fcebe4e6d9478c365753508}
+      \strng{authorfullhashraw}{2cdcc0549fcebe4e6d9478c365753508}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.AI}
+      \field{eprinttype}{arXiv}
+      \field{title}{Robust and Transferable Anomaly Detection in Log Data using Pre-Trained Language Models}
+      \field{year}{2021}
+      \verb{eprint}
+      \verb 2102.11570
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2102.11570
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2102.11570
+      \endverb
+    \endentry
+    \entry{LogAnomaly}{inproceedings}{}{}
+      \name{author}{11}{}{%
+        {{hash=cf4f7b2f3d50579c87e483cedfd9ae28}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Weibin},
+           giveni={W\bibinitperiod}}}%
+        {{hash=d16056932a393b93367a5223974b55f6}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Ying},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=2672dc4b9ff36e10a0ef4eb8de7587da}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Yichen},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=121375fc61f71efedced20331e6d464e}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Shenglin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=26b02dc0af8c6f31cfc3df3a238db077}{%
+           family={Pei},
+           familyi={P\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=3094d8858fa27c304c5d51bb23a5b474}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yuqing},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=79f8f787e157d5a838957864426440ac}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yihao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f71f3962b0a05a9572a48da1944be199}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Ruizhi},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ebfcf5d62cac9a5328ba68e19c941c18}{%
+           family={Tao},
+           familyi={T\bibinitperiod},
+           given={Shimin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bf3fc6b15afe62b9895f3323c4f86fa6}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Pei},
+           giveni={P\bibinitperiod}}}%
+        {{hash=80c4521e026e2b9a34ca57a1eda8a34c}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Rong},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {International Joint Conferences on Artificial Intelligence Organization}%
+      }
+      \strng{namehash}{fca526c197750cfe205c1166cbfe0a34}
+      \strng{fullhash}{cee71829272a455c25d0e2668067a8c9}
+      \strng{fullhashraw}{cee71829272a455c25d0e2668067a8c9}
+      \strng{bibnamehash}{cee71829272a455c25d0e2668067a8c9}
+      \strng{authorbibnamehash}{cee71829272a455c25d0e2668067a8c9}
+      \strng{authornamehash}{fca526c197750cfe205c1166cbfe0a34}
+      \strng{authorfullhash}{cee71829272a455c25d0e2668067a8c9}
+      \strng{authorfullhashraw}{cee71829272a455c25d0e2668067a8c9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, {IJCAI-19}}
+      \field{month}{7}
+      \field{title}{LogAnomaly: Unsupervised Detection of Sequential and Quantitative Anomalies in Unstructured Logs}
+      \field{year}{2019}
+      \field{pages}{4739\bibrangedash 4745}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.24963/ijcai.2019/658
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.24963/ijcai.2019/658
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.24963/ijcai.2019/658
+      \endverb
+    \endentry
+    \entry{SystemLog}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=43d365d046a21fec21a23cbb2453d15b}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Shilin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=fa3d04898970f061ddb4645c25b05fca}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jieming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7a3899b05fe89d81bde7cd496b988c16}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Pinjia},
+           giveni={P\bibinitperiod}}}%
+        {{hash=89afa2af91c8dfa048fdcec740d6684e}{%
+           family={Lyu},
+           familyi={L\bibinitperiod},
+           given={Michael\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{fde27ecd3e20620482752ec0e68f2714}
+      \strng{fullhash}{d5898ba296f1e105c9e72bd3aaf54dff}
+      \strng{fullhashraw}{d5898ba296f1e105c9e72bd3aaf54dff}
+      \strng{bibnamehash}{d5898ba296f1e105c9e72bd3aaf54dff}
+      \strng{authorbibnamehash}{d5898ba296f1e105c9e72bd3aaf54dff}
+      \strng{authornamehash}{fde27ecd3e20620482752ec0e68f2714}
+      \strng{authorfullhash}{d5898ba296f1e105c9e72bd3aaf54dff}
+      \strng{authorfullhashraw}{d5898ba296f1e105c9e72bd3aaf54dff}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2016 IEEE 27th International Symposium on Software Reliability Engineering (ISSRE)}
+      \field{title}{Experience Report: System Log Analysis for Anomaly Detection}
+      \field{year}{2016}
+      \field{pages}{207\bibrangedash 218}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/ISSRE.2016.21
+      \endverb
+      \keyw{Feature extraction;Open source software;Runtime;Industries;Manuals;Inspection;Large-scale systems}
+    \endentry
+    \entry{geron2019hands}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=e54e6c9ce5d233c7046a00f7b3faa6c0}{%
+           family={Géron},
+           familyi={G\bibinitperiod},
+           given={Aurélien},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Sebastopol, CA}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{fullhash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{fullhashraw}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{bibnamehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authorbibnamehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authornamehash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authorfullhash}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \strng{authorfullhashraw}{e54e6c9ce5d233c7046a00f7b3faa6c0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{isbn}{978-1-492-03264-9}
+      \field{title}{Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/
+      \endverb
+      \verb{url}
+      \verb https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/
+      \endverb
+    \endentry
+    \entry{alammar2024hands}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=071e8b59bcc6de28244fea3bf962a165}{%
+           family={Alammar},
+           familyi={A\bibinitperiod},
+           given={Jay},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a07dee61406b9c48310bff46188c983b}{%
+           family={Grootendorst},
+           familyi={G\bibinitperiod},
+           given={Maarten},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Sebastopol, CA}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{0650457fefbcc1b47ed66572b476e1c2}
+      \strng{fullhash}{0650457fefbcc1b47ed66572b476e1c2}
+      \strng{fullhashraw}{0650457fefbcc1b47ed66572b476e1c2}
+      \strng{bibnamehash}{0650457fefbcc1b47ed66572b476e1c2}
+      \strng{authorbibnamehash}{0650457fefbcc1b47ed66572b476e1c2}
+      \strng{authornamehash}{0650457fefbcc1b47ed66572b476e1c2}
+      \strng{authorfullhash}{0650457fefbcc1b47ed66572b476e1c2}
+      \strng{authorfullhashraw}{0650457fefbcc1b47ed66572b476e1c2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-492-08828-3}
+      \field{title}{Hands-On Large Language Models: Language Understanding and Generation}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.oreilly.com/library/view/hands-on-large-language/9781492088283/
+      \endverb
+      \verb{url}
+      \verb https://www.oreilly.com/library/view/hands-on-large-language/9781492088283/
+      \endverb
+    \endentry
+    \entry{LogHound}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=1a4c2faa0f42852b0ab0dafaa8b373eb}{%
+           family={Vaarandi},
+           familyi={V\bibinitperiod},
+           given={Risto},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{1a4c2faa0f42852b0ab0dafaa8b373eb}
+      \strng{fullhash}{1a4c2faa0f42852b0ab0dafaa8b373eb}
+      \strng{fullhashraw}{1a4c2faa0f42852b0ab0dafaa8b373eb}
+      \strng{bibnamehash}{1a4c2faa0f42852b0ab0dafaa8b373eb}
+      \strng{authorbibnamehash}{1a4c2faa0f42852b0ab0dafaa8b373eb}
+      \strng{authornamehash}{1a4c2faa0f42852b0ab0dafaa8b373eb}
+      \strng{authorfullhash}{1a4c2faa0f42852b0ab0dafaa8b373eb}
+      \strng{authorfullhashraw}{1a4c2faa0f42852b0ab0dafaa8b373eb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{Mining event logs with SLCT and LogHound}
+      \field{year}{2008}
+      \field{pages}{1071\bibrangedash 1074}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/NOMS.2008.4575281
+      \endverb
+    \endentry
+    \entry{oneclasssvm}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=05691d023edcfcbe938092b8fb686f5c}{%
+           family={Amer},
+           familyi={A\bibinitperiod},
+           given={Mennatallah},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e6436bacfaed41cfc4d347f71b526f3c}{%
+           family={Goldstein},
+           familyi={G\bibinitperiod},
+           given={Markus},
+           giveni={M\bibinitperiod}}}%
+        {{hash=60a1f563a006ce9c1dfc027c855e993c}{%
+           family={Abdennadher},
+           familyi={A\bibinitperiod},
+           given={Slim},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{00a404613cf4603bd6471d09d7221617}
+      \strng{fullhash}{00a404613cf4603bd6471d09d7221617}
+      \strng{fullhashraw}{00a404613cf4603bd6471d09d7221617}
+      \strng{bibnamehash}{00a404613cf4603bd6471d09d7221617}
+      \strng{authorbibnamehash}{00a404613cf4603bd6471d09d7221617}
+      \strng{authornamehash}{00a404613cf4603bd6471d09d7221617}
+      \strng{authorfullhash}{00a404613cf4603bd6471d09d7221617}
+      \strng{authorfullhashraw}{00a404613cf4603bd6471d09d7221617}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the ACM SIGKDD Workshop on Outlier Detection and Description, ODD 2013}
+      \field{month}{08}
+      \field{title}{Enhancing one-class Support Vector Machines for unsupervised anomaly detection}
+      \field{year}{2013}
+      \field{pages}{8\bibrangedash 15}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/2500853.2500857
+      \endverb
+    \endentry
+    \entry{muller2016introduction}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=ded57eec209923f330307cf72b4a8e1d}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Andreas\bibnamedelima C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=529c7671a0173ff25261c1f04363a982}{%
+           family={Guido},
+           familyi={G\bibinitperiod},
+           given={Sarah},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Sebastopol, CA}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{5e761ea2d4566696bdac17948e69202a}
+      \strng{fullhash}{5e761ea2d4566696bdac17948e69202a}
+      \strng{fullhashraw}{5e761ea2d4566696bdac17948e69202a}
+      \strng{bibnamehash}{5e761ea2d4566696bdac17948e69202a}
+      \strng{authorbibnamehash}{5e761ea2d4566696bdac17948e69202a}
+      \strng{authornamehash}{5e761ea2d4566696bdac17948e69202a}
+      \strng{authorfullhash}{5e761ea2d4566696bdac17948e69202a}
+      \strng{authorfullhashraw}{5e761ea2d4566696bdac17948e69202a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1449369415}
+      \field{title}{Introduction to Machine Learning with Python: A Guide for Data Scientists}
+      \field{year}{2016}
+    \endentry
+    \entry{ali2025}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=3a8c4d41879889054c091d9d8dc98f73}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Tarek},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {Faculty of Information Technology}%
+        {Electrical Engineering, University of Oulu}%
+      }
+      \list{location}{1}{%
+        {Oulu, Finland}%
+      }
+      \strng{namehash}{3a8c4d41879889054c091d9d8dc98f73}
+      \strng{fullhash}{3a8c4d41879889054c091d9d8dc98f73}
+      \strng{fullhashraw}{3a8c4d41879889054c091d9d8dc98f73}
+      \strng{bibnamehash}{3a8c4d41879889054c091d9d8dc98f73}
+      \strng{authorbibnamehash}{3a8c4d41879889054c091d9d8dc98f73}
+      \strng{authornamehash}{3a8c4d41879889054c091d9d8dc98f73}
+      \strng{authorfullhash}{3a8c4d41879889054c091d9d8dc98f73}
+      \strng{authorfullhashraw}{3a8c4d41879889054c091d9d8dc98f73}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Next-Generation Intrusion Detection Systems with LLMs: Real-Time Anomaly Detection, Explainable AI, and Adaptive Data Generation}
+      \field{type}{Master's thesis}
+      \field{year}{2025}
+    \endentry
+    \entry{IsolationForest}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=be17c750657847fd489802d414210d61}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Dong},
+           giveni={D\bibinitperiod}}}%
+        {{hash=66e9d74bf371aecbb5492c8e943b73f5}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yanjun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=a48bb992dcd2e563bb6a339b351a1d39}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Yulong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=9f3d1605bbd498a88b34b994be15519b}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Ziying},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb6d18bd7676d8860a0bf2dd98a5043a}
+      \strng{fullhash}{0bcf32cd0410711158c59fe771441808}
+      \strng{fullhashraw}{0bcf32cd0410711158c59fe771441808}
+      \strng{bibnamehash}{0bcf32cd0410711158c59fe771441808}
+      \strng{authorbibnamehash}{0bcf32cd0410711158c59fe771441808}
+      \strng{authornamehash}{bb6d18bd7676d8860a0bf2dd98a5043a}
+      \strng{authorfullhash}{0bcf32cd0410711158c59fe771441808}
+      \strng{authorfullhashraw}{0bcf32cd0410711158c59fe771441808}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{An Improved Data Anomaly Detection Method Based on Isolation Forest}
+      \field{year}{2017}
+      \field{pages}{287\bibrangedash 291}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/ISCID.2017.202
+      \endverb
+    \endentry
+    \entry{hashemi2025}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=3e38a2cef8b11349c21def44913135d4}{%
+           family={Hosseinabad},
+           familyi={H\bibinitperiod},
+           given={Sayedshayan\bibnamedelima Hashemi},
+           giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{institution}{2}{%
+        {University of Oulu, Faculty of Information Technology}%
+        {Electrical Engineering}%
+      }
+      \list{location}{1}{%
+        {Oulu, Finland}%
+      }
+      \strng{namehash}{3e38a2cef8b11349c21def44913135d4}
+      \strng{fullhash}{3e38a2cef8b11349c21def44913135d4}
+      \strng{fullhashraw}{3e38a2cef8b11349c21def44913135d4}
+      \strng{bibnamehash}{3e38a2cef8b11349c21def44913135d4}
+      \strng{authorbibnamehash}{3e38a2cef8b11349c21def44913135d4}
+      \strng{authornamehash}{3e38a2cef8b11349c21def44913135d4}
+      \strng{authorfullhash}{3e38a2cef8b11349c21def44913135d4}
+      \strng{authorfullhashraw}{3e38a2cef8b11349c21def44913135d4}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-952-62-4502-7}
+      \field{note}{Acta Univ. Oul. A 808}
+      \field{title}{Data-Driven Software System Log Anomaly Detection}
+      \field{type}{Doctoral dissertation}
+      \field{year}{2025}
+    \endentry
+    \entry{LogBERT}{misc}{}{}
+      \name{author}{3}{}{%
+        {{hash=9a08ab58f9d216b1eeee9b54233608b9}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Haixuan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=a8d2536fc74f40d1e9fcf3133999fa2b}{%
+           family={Yuan},
+           familyi={Y\bibinitperiod},
+           given={Shuhan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=dca0bccd0e95c0a62555e0a71e4d4c45}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Xintao},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{25373d373ab1c88eb2059e59885dc002}
+      \strng{fullhash}{25373d373ab1c88eb2059e59885dc002}
+      \strng{fullhashraw}{25373d373ab1c88eb2059e59885dc002}
+      \strng{bibnamehash}{25373d373ab1c88eb2059e59885dc002}
+      \strng{authorbibnamehash}{25373d373ab1c88eb2059e59885dc002}
+      \strng{authornamehash}{25373d373ab1c88eb2059e59885dc002}
+      \strng{authorfullhash}{25373d373ab1c88eb2059e59885dc002}
+      \strng{authorfullhashraw}{25373d373ab1c88eb2059e59885dc002}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CR}
+      \field{eprinttype}{arXiv}
+      \field{title}{LogBERT: Log Anomaly Detection via BERT}
+      \field{year}{2021}
+      \verb{eprint}
+      \verb 2103.04475
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2103.04475
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2103.04475
+      \endverb
+    \endentry
+    \entry{AttentionIsAllYouNeed}{misc}{}{}
+      \name{author}{8}{}{%
+        {{hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod}}}%
+        {{hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod}}}%
+        {{hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod}}}%
+        {{hash=831027ee0ebf22375e2a86afc1881909}{%
+           family={Uszkoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod}}}%
+        {{hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N.},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=f2bc899b1160163417da7bf510f15d33}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Lukasz},
+           giveni={L\bibinitperiod}}}%
+        {{hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{f82970bbd2bdd7a002d2af62b743d5cc}
+      \strng{fullhashraw}{f82970bbd2bdd7a002d2af62b743d5cc}
+      \strng{bibnamehash}{f82970bbd2bdd7a002d2af62b743d5cc}
+      \strng{authorbibnamehash}{f82970bbd2bdd7a002d2af62b743d5cc}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{f82970bbd2bdd7a002d2af62b743d5cc}
+      \strng{authorfullhashraw}{f82970bbd2bdd7a002d2af62b743d5cc}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{title}{Attention Is All You Need}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 1706.03762
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1706.03762
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1706.03762
+      \endverb
+    \endentry
+    \entry{AttentionNotExplanation}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=cd2bb336655f68d528050759802b83f4}{%
+           family={Wiegreffe},
+           familyi={W\bibinitperiod},
+           given={Sarah},
+           giveni={S\bibinitperiod}}}%
+        {{hash=4d9c3b5b75abff3e8df33bd05ed75d32}{%
+           family={Pinter},
+           familyi={P\bibinitperiod},
+           given={Yuval},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{a347527a94a18d2138eb13e831d544ac}
+      \strng{fullhash}{a347527a94a18d2138eb13e831d544ac}
+      \strng{fullhashraw}{a347527a94a18d2138eb13e831d544ac}
+      \strng{bibnamehash}{a347527a94a18d2138eb13e831d544ac}
+      \strng{authorbibnamehash}{a347527a94a18d2138eb13e831d544ac}
+      \strng{authornamehash}{a347527a94a18d2138eb13e831d544ac}
+      \strng{authorfullhash}{a347527a94a18d2138eb13e831d544ac}
+      \strng{authorfullhashraw}{a347527a94a18d2138eb13e831d544ac}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{title}{Attention is not not Explanation}
+      \field{year}{2019}
+      \verb{eprint}
+      \verb 1908.04626
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1908.04626
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1908.04626
+      \endverb
+    \endentry
+    \entry{XAImersha2024}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=f516eab71df59d824b5e46289534ec40}{%
+           family={Mersha},
+           familyi={M\bibinitperiod},
+           given={Melkamu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5ff74dc116870ec98982fc7310a7476e}{%
+           family={Lam},
+           familyi={L\bibinitperiod},
+           given={Khang},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0e9848040dd8bd8d18980cf749be02ea}{%
+           family={Wood},
+           familyi={W\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ad43f17d837be2f4418d2c1fae1b78cd}{%
+           family={AlShami},
+           familyi={A\bibinitperiod},
+           given={Ali\bibnamedelima K.},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=ce02eab0712746bf0b0877dfbbc3d3bd}{%
+           family={Kalita},
+           familyi={K\bibinitperiod},
+           given={Jugal},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{58db78f34a5f6107c6be54dc1733a59c}
+      \strng{fullhash}{076fa29c69dd41ce500e4e3bd582764d}
+      \strng{fullhashraw}{076fa29c69dd41ce500e4e3bd582764d}
+      \strng{bibnamehash}{076fa29c69dd41ce500e4e3bd582764d}
+      \strng{authorbibnamehash}{076fa29c69dd41ce500e4e3bd582764d}
+      \strng{authornamehash}{58db78f34a5f6107c6be54dc1733a59c}
+      \strng{authorfullhash}{076fa29c69dd41ce500e4e3bd582764d}
+      \strng{authorfullhashraw}{076fa29c69dd41ce500e4e3bd582764d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0925-2312}
+      \field{journaltitle}{Neurocomputing}
+      \field{month}{9}
+      \field{title}{Explainable artificial intelligence: A survey of needs, techniques, applications, and future direction}
+      \field{volume}{599}
+      \field{year}{2024}
+      \field{pages}{128111}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.neucom.2024.128111
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/j.neucom.2024.128111
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.neucom.2024.128111
+      \endverb
+    \endentry
+    \entry{SoKBhusal_2023}{inproceedings}{}{}
+      \name{author}{7}{}{%
+        {{hash=6f2ce87c4455851e28cf64deb0e9d780}{%
+           family={Bhusal},
+           familyi={B\bibinitperiod},
+           given={Dipkamal},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f5b70f665c7b511650e84f738327f6eb}{%
+           family={Shin},
+           familyi={S\bibinitperiod},
+           given={Rosalyn},
+           giveni={R\bibinitperiod}}}%
+        {{hash=a43ded5aed0e4b0a16249b333e8797c6}{%
+           family={Shewale},
+           familyi={S\bibinitperiod},
+           given={Ajay\bibnamedelima Ashok},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=c7c4309868aed2ad889df6df9a01c82a}{%
+           family={Veerabhadran},
+           familyi={V\bibinitperiod},
+           given={Monish\bibnamedelimb Kumar\bibnamedelima Manikya},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=6fa173b9bc7b7ece0e88f50dc04063db}{%
+           family={Clifford},
+           familyi={C\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8ecb43b428f211a686a82b6010a99e49}{%
+           family={Rampazzi},
+           familyi={R\bibinitperiod},
+           given={Sara},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bfa183d0aa146d8bf0ee0349ba853c14}{%
+           family={Rastogi},
+           familyi={R\bibinitperiod},
+           given={Nidhi},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{9da443a821f920cde8a30c779e7b55e2}
+      \strng{fullhash}{f4c2d58e9eddca5c149d219b79cf8308}
+      \strng{fullhashraw}{f4c2d58e9eddca5c149d219b79cf8308}
+      \strng{bibnamehash}{f4c2d58e9eddca5c149d219b79cf8308}
+      \strng{authorbibnamehash}{f4c2d58e9eddca5c149d219b79cf8308}
+      \strng{authornamehash}{9da443a821f920cde8a30c779e7b55e2}
+      \strng{authorfullhash}{f4c2d58e9eddca5c149d219b79cf8308}
+      \strng{authorfullhashraw}{f4c2d58e9eddca5c149d219b79cf8308}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 18th International Conference on Availability, Reliability and Security}
+      \field{month}{8}
+      \field{series}{ARES 2023}
+      \field{title}{SoK: Modeling Explainability in Security Analytics for Interpretability, Trustworthiness, and Usability}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 12}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1145/3600160.3600193
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1145/3600160.3600193
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1145/3600160.3600193
+      \endverb
+    \endentry
+    \entry{Unified}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=b659ebc88023a12a732b4db9afdede3d}{%
+           family={Lundberg},
+           familyi={L\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ee964079d93879aaef2382a5fff343d3}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Su-In},
+           giveni={S\bibinithyphendelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{fullhash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{fullhashraw}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{bibnamehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authorbibnamehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authornamehash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authorfullhash}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \strng{authorfullhashraw}{92d799a71ca7ae2c3ebec3ec87e85189}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.AI}
+      \field{eprinttype}{arXiv}
+      \field{title}{A Unified Approach to Interpreting Model Predictions}
+      \field{year}{2017}
+      \verb{eprint}
+      \verb 1705.07874
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1705.07874
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1705.07874
+      \endverb
+    \endentry
+    \entry{BertViz}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=bb7db97ed791e515c4b1e12e022b0993}{%
+           family={Vig},
+           familyi={V\bibinitperiod},
+           given={Jesse},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb7db97ed791e515c4b1e12e022b0993}
+      \strng{fullhash}{bb7db97ed791e515c4b1e12e022b0993}
+      \strng{fullhashraw}{bb7db97ed791e515c4b1e12e022b0993}
+      \strng{bibnamehash}{bb7db97ed791e515c4b1e12e022b0993}
+      \strng{authorbibnamehash}{bb7db97ed791e515c4b1e12e022b0993}
+      \strng{authornamehash}{bb7db97ed791e515c4b1e12e022b0993}
+      \strng{authorfullhash}{bb7db97ed791e515c4b1e12e022b0993}
+      \strng{authorfullhashraw}{bb7db97ed791e515c4b1e12e022b0993}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{BertViz: A Tool for Visualizing Multi-Head Self-Attention in the BERT Model}
+      \field{year}{2019}
+    \endentry
+    \entry{AnomalyExplainer}{misc}{}{}
+      \name{author}{4}{}{%
+        {{hash=f07dc512eb16183c4de831f138b7713c}{%
+           family={Balasubramanian},
+           familyi={B\bibinitperiod},
+           given={Prasasthy},
+           giveni={P\bibinitperiod}}}%
+        {{hash=8f16c052ebb3fcd8ebc747ef55f173b7}{%
+           family={Kankanamge},
+           familyi={K\bibinitperiod},
+           given={Dumindu},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9bb1c20538d19eab02a6e38456585cc1}{%
+           family={Gilman},
+           familyi={G\bibinitperiod},
+           given={Ekaterina},
+           giveni={E\bibinitperiod}}}%
+        {{hash=f4aa5c30127aebd39aa2b3c03a7f79c7}{%
+           family={Oussalah},
+           familyi={O\bibinitperiod},
+           given={Mourad},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{41112f52201baa1cad5d5c8fa71411ab}
+      \strng{fullhash}{fe896d6cbb4e40d181b211d3f1f136d9}
+      \strng{fullhashraw}{fe896d6cbb4e40d181b211d3f1f136d9}
+      \strng{bibnamehash}{fe896d6cbb4e40d181b211d3f1f136d9}
+      \strng{authorbibnamehash}{fe896d6cbb4e40d181b211d3f1f136d9}
+      \strng{authornamehash}{41112f52201baa1cad5d5c8fa71411ab}
+      \strng{authorfullhash}{fe896d6cbb4e40d181b211d3f1f136d9}
+      \strng{authorfullhashraw}{fe896d6cbb4e40d181b211d3f1f136d9}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{AnomalyExplainer Explainable AI for LLM-based anomaly detection using BERTViz and Captum}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2509.00069
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2509.00069
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2509.00069
+      \endverb
+    \endentry
+    \entry{WhyShouldITrustYou}{misc}{}{}
+      \name{author}{3}{}{%
+        {{hash=9203dc724f298030e81ba470feb309af}{%
+           family={Ribeiro},
+           familyi={R\bibinitperiod},
+           given={Marco\bibnamedelima Tulio},
+           giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=0b9694812f0dc77974d99bb875a76d48}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Sameer},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c9ab8ac486d7f85ac914b1a8e51e512b}{%
+           family={Guestrin},
+           familyi={G\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{70906198418f30a779bc9bda0f6ae1f1}
+      \strng{fullhash}{70906198418f30a779bc9bda0f6ae1f1}
+      \strng{fullhashraw}{70906198418f30a779bc9bda0f6ae1f1}
+      \strng{bibnamehash}{70906198418f30a779bc9bda0f6ae1f1}
+      \strng{authorbibnamehash}{70906198418f30a779bc9bda0f6ae1f1}
+      \strng{authornamehash}{70906198418f30a779bc9bda0f6ae1f1}
+      \strng{authorfullhash}{70906198418f30a779bc9bda0f6ae1f1}
+      \strng{authorfullhashraw}{70906198418f30a779bc9bda0f6ae1f1}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{"Why Should I Trust You?": Explaining the Predictions of Any Classifier}
+      \field{year}{2016}
+      \verb{eprint}
+      \verb 1602.04938
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1602.04938
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1602.04938
+      \endverb
+    \endentry
+    \entry{MLAD}{misc}{}{}
+      \name{author}{9}{}{%
+        {{hash=d3e897c6d50e2257fa0371d2e9df6a71}{%
+           family={Zang},
+           familyi={Z\bibinitperiod},
+           given={Runqiang},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2843e0e5227166590908d508f0b9d43f}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Hongcheng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=5a1cb92dc789e714fb5aaf67809119a6}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1e237b158d4ff3abf472e9ba2d6c9716}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jiaheng},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5756883fe146f8c0788104bc4fc41e77}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zhoujun},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=39b0c9140b25994b04f2d495331e9b95}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Tieqiao},
+           giveni={T\bibinitperiod}}}%
+        {{hash=cb40708914697ee047c3a5ff66fc005b}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Xu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=81552c129d6876181e88729259d24799}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Liangfan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=4ac36eed64badd6f195e86aeecd037a7}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Bo},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{e49e6bfeca099e8b4bbe8daaf6327408}
+      \strng{fullhash}{51184082adf8b1afc11d18829a75017b}
+      \strng{fullhashraw}{51184082adf8b1afc11d18829a75017b}
+      \strng{bibnamehash}{51184082adf8b1afc11d18829a75017b}
+      \strng{authorbibnamehash}{51184082adf8b1afc11d18829a75017b}
+      \strng{authornamehash}{e49e6bfeca099e8b4bbe8daaf6327408}
+      \strng{authorfullhash}{51184082adf8b1afc11d18829a75017b}
+      \strng{authorfullhashraw}{51184082adf8b1afc11d18829a75017b}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.SE}
+      \field{eprinttype}{arXiv}
+      \field{title}{MLAD: A Unified Model for Multi-system Log Anomaly Detection}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{eprint}
+      \verb 2401.07655
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2401.07655
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2401.07655
+      \endverb
+    \endentry
+    \entry{Ko2025}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=1f96d2c7beb8183e5eed6805ac167b69}{%
+           family={Ko},
+           familyi={K\bibinitperiod},
+           given={Chiung},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b73210ed2e4aa64ec4826584cd8ca812}{%
+           family={Kang},
+           familyi={K\bibinitperiod},
+           given={Jintaek},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8a96dc3ed92c8454e98911ac36da6802}{%
+           family={Lim},
+           familyi={L\bibinitperiod},
+           given={Chaejun},
+           giveni={C\bibinitperiod}}}%
+        {{hash=eb3cebe36fc90669a31d5308a0624079}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Donggeun},
+           giveni={D\bibinitperiod}}}%
+        {{hash=d0a7ae3ab7080d6f8608648682ca975a}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Minwoo},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{9d88c6216d32ccce1ba2ca75771d4dc6}
+      \strng{fullhash}{b7cff6dc597e81e132b15c2460ee5e30}
+      \strng{fullhashraw}{b7cff6dc597e81e132b15c2460ee5e30}
+      \strng{bibnamehash}{b7cff6dc597e81e132b15c2460ee5e30}
+      \strng{authorbibnamehash}{b7cff6dc597e81e132b15c2460ee5e30}
+      \strng{authornamehash}{9d88c6216d32ccce1ba2ca75771d4dc6}
+      \strng{authorfullhash}{b7cff6dc597e81e132b15c2460ee5e30}
+      \strng{authorfullhashraw}{b7cff6dc597e81e132b15c2460ee5e30}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1999-4907}
+      \field{journaltitle}{Forests}
+      \field{number}{7}
+      \field{title}{Application of Machine Learning Models in the Estimation of Quercus mongolica Stem Profiles}
+      \field{volume}{16}
+      \field{year}{2025}
+      \true{nocite}
+      \verb{doi}
+      \verb 10.3390/f16071138
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/1999-4907/16/7/1138
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/1999-4907/16/7/1138
+      \endverb
+    \endentry
+    \entry{LogFiT}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=e7d0850d3fe5d8db6f3c332b27328ec0}{%
+           family={Almodovar},
+           familyi={A\bibinitperiod},
+           given={Crispin},
+           giveni={C\bibinitperiod}}}%
+        {{hash=bc72c368e7ec55fe1d83d2062196d44d}{%
+           family={Sabrina},
+           familyi={S\bibinitperiod},
+           given={Fariza},
+           giveni={F\bibinitperiod}}}%
+        {{hash=e241322855010d1b2d6f2aa9a8c83c02}{%
+           family={Karimi},
+           familyi={K\bibinitperiod},
+           given={Sarvnaz},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0bfe8e6c2e225aa5b1b9c3f422e66652}{%
+           family={Azad},
+           familyi={A\bibinitperiod},
+           given={Salahuddin},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{190cc3e9ddb3fad7d94284fdd59303b9}
+      \strng{fullhash}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{fullhashraw}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{bibnamehash}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{authorbibnamehash}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{authornamehash}{190cc3e9ddb3fad7d94284fdd59303b9}
+      \strng{authorfullhash}{848a0f0b76616c755554d925f4c3f1a0}
+      \strng{authorfullhashraw}{848a0f0b76616c755554d925f4c3f1a0}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Network and Service Management}
+      \field{number}{2}
+      \field{title}{LogFiT: Log Anomaly Detection Using Fine-Tuned Language Models}
+      \field{volume}{21}
+      \field{year}{2024}
+      \true{nocite}
+      \field{pages}{1715\bibrangedash 1723}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/TNSM.2024.3358730
+      \endverb
+      \keyw{Anomaly detection;Transformers;Data models;Semantics;Training;Deep learning;Computational modeling;Service monitoring;fault management;log anomaly detection;deep learning;natural language processing;language modeling}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
