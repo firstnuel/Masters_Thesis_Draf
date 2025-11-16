@@ -17,14 +17,7 @@ Early log anomaly detection efforts relied heavily on human expertise \cite{LogC
 Rule-based methodologies were among the first attempts to automate log analysis to reduce human error. These methods typically rely on explicitly defined rules, patterns, or known indicators of abnormal behavior, often requiring specific domain knowledge from human experts. Early rule-based systems focused on matching specific keywords (e.g., "error," "failed") or using regular expressions to flag anomalous log entries \cite{robust}. However, relying solely on keywords or structural features often prevents a large portion of log anomalies from being detected and can lead to unnecessary alarms (alarm fatigue) if the system constantly evolves \cite{robust,LogAnomaly}. Furthermore, manually designing and maintaining regular expressions is prohibitive given the rapid increase in log volume and frequent system updates \cite{Drain}.
 Invariant mining is another traditional approach that captures co-occurrence patterns between different log keys \cite{DeepLog,LogAnomaly}. This method defines a window (time or session based) and detects whether certain mined quantitative relationships, or invariants, hold true within that window (e.g., ensuring that the count of "file open" logs equals the count of "file close" logs in a normal condition) \cite{LogAnomaly}. IM is typically characterized as an unsupervised offline method \cite{DeepLog}.
 
-
-
-
-\paragraph{Statistical Methods (Clustering, PCA)}
-
-Statistical methods leverage mathematical principles to identify normal patterns and flag deviations statistically likely to be anomalous. These methods typically operate on numeric vector representations of logs, often using only log keys and their counts rather than parameter values \cite{DeepLog}. Most rely on initial log parsing to convert raw messages into structured, numeric representations such as event count vectors \cite{SystemLog, DeepLog}.
-
-PCA is a linear transformation technique that converts correlated variables into uncorrelated principal components \cite{LAnoBERT, geron2019hands}. In log analysis, PCA operates at the session level, where log entries are grouped by identifiers (e.g., block\_id in HDFS) and converted into event count vectors recording log key frequencies \cite{SystemLog}. It then projects this high-dimensional counting matrix into a lower-dimensional space by identifying components capturing the most variance \cite{LogCTBL}. PCA produces a normal space ($S_n$) from the first $k$ principal components and an anomaly space ($S_a$) from the remaining dimensions. Anomalies are detected by measuring each session’s projection length onto $S_a$ using the Squared Prediction Error (SPE) \cite{SystemLog, robust, DeepLog}.
+Statistical methods leverage mathematical principles to identify normal patterns and flag deviations statistically likely to be anomalous. These methods typically operate on numeric vector representations of logs, often using only log keys and their counts rather than parameter values \cite{DeepLog}. Most rely on initial log parsing to convert raw messages into structured, numeric representations such as event count vectors \cite{SystemLog, DeepLog}. PCA is a linear transformation technique that converts correlated variables into uncorrelated principal components \cite{LAnoBERT, geron2019hands}. In log analysis, PCA operates at the session level, where log entries are grouped by identifiers (e.g., block\_id in HDFS) and converted into event count vectors recording log key frequencies \cite{SystemLog}. It then projects this high-dimensional counting matrix into a lower-dimensional space by identifying components capturing the most variance \cite{LogCTBL}. PCA produces a normal space ($S_n$) from the first $k$ principal components and an anomaly space ($S_a$) from the remaining dimensions. Anomalies are detected by measuring each session’s projection length onto $S_a$ using the Squared Prediction Error (SPE) \cite{SystemLog, robust, DeepLog}.
 
 Clustering algorithms group similar data instances to identify patterns or outliers \cite{alammar2024hands, geron2019hands}. LogCluster is an unsupervised method that groups textually similar log messages using IDF-scaled vectorization to build a knowledge base of normal and abnormal clusters \cite{SystemLog, LogCTBL}. Sequences are classified as anomalous if their distance to the nearest cluster centroid exceeds a threshold \cite{LogCTBL}. Density-based approaches like SLCT group frequently occurring messages into clusters representing common patterns, treating entries outside these clusters as potential anomalies \cite{LogHound}. HDBSCAN extends this approach and is sometimes used to provide pseudo-labels for semi-supervised learning \cite{LogCTBL}.
 
@@ -67,6 +60,79 @@ LogFormer \cite{LogFormer} & Transformer (Pre-train/Tuning) & Yes (Drain) & 0.98
 \end{tabular}
 \caption{Comparison of representative log anomaly detection models.}
 \end{table}
+
+
+
+
+
+
+
+
+
+\subsection{NLP Foundations for Log Analysis}
+
+ Although system logs differ from traditional natural language, many NLP principles, such as tokenization, contextual modeling, and semantic representation, do offer powerful tools for automated understanding of log messages \cite{NLPLogMining, NaturalAustin}. System logs, while not exactly written for human communication, can still be viewed as linguistic artifacts \cite{HierarchicalTransformers}. Each log entry is a textual description of an event produced by the program’s defined logic. Similar to sentences in natural language, a log message consists of tokens (words, symbols, parameters), and sequences of logs form structured narratives of system behavior \cite{DeepLog}. But unlike natural language, logs exhibit several distinguishing characteristics. Logs are semi-structured and originate from a source code. Their syntax follows some deterministic patterns, resulting in far smaller and more rigid vocabularies than those of human language. Log messages contain a diverse range of token types, keywords, identifiers, IP addresses, timestamps, and domain-specific terminology, resulting in a unique distribution of tokens. Logs from different subsystems vary significantly in style and structure, reflecting the distinct developer habits and architectural designs employed in each subsystem \cite{HierarchicalTransformers,DeepLog}. Because logs are free-text yet follow domain-specific ‘grammar,’ traditional log analysis frameworks have long treated log parsing as an essential precursor step, as discussed earlier. This structured view supports downstream analytical tasks, especially in rule-based and statistical pipelines \cite{PreLog}. However, template-based representations come with clear limitations. They assume a fixed and stable set of templates and often discard contextual nuances. In contrast, language-based approaches (parser-free models) preserve the full textual content and treat logs as meaningful linguistic sequences.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|l|p{3.5cm}|p{4cm}|p{4cm}|}
+\hline
+\textbf{Approach} & \textbf{Basis} & \textbf{Advantage} & \textbf{Limitation} \\
+\hline
+Template-based & Structured log templates & Simpler, compact representations & Loses semantic/contextual information; brittle under log instability \\
+\hline
+Language-based & Raw/lightly cleaned text, tokenized & Robust to syntactic changes; preserves meaning & Higher computational complexity \\
+\hline
+\end{tabular}
+\caption{Comparison of template-based and language-based log representations.}
+\label{tab:template-vs-language}
+\end{table}
+
+Language-based approaches (parser-free models) address the limitations of templates by leveraging contextualized representations, which are robust to variations in log content over time \cite{robust}.
+
+
+\subsubsection{Log Parsing Techniques}
+Log parsing as discussed earlier represents the initial stage of preprocessing in the log analysis pipeline, it aims to produce structured input for ML algorithms. The primary role of log parsing is structural extraction, this process converts the raw log content into a structured event description. Drain is an effective online log parser designed to process logs accurately and efficiently in a streaming and timely manner.It incrementally cluster incoming log messages by identifying their constant (template) structure and separating variable parts (parameters) . To accelerate the searching process needed to match a new log to an existing log group, Drain utilizes a fixed depth parse tree \cite{Drain}. Other parsers exist, such as the earlier mentioned Spell, which uses Longest Common Subsequence (LCS) matching to dynamically infer structural patterns \cite{Spell}.
+
+\subsubsection{Pre-trained Language Models for Logs}
+NLP at its foundation involves pre-trained language models (PLMs) that leverage \textbf{transfer learning}. These models are first trained in a self-supervised manner on large and unlabeled text corpora (like wikipedia), this extensive pre-training phase allows the model to learn deep, generalized representations of language, grammar, and context, forming a broad knowledge base that can later be  adapted to a specific, smaller task (like log anomaly detection) through fine-tuning \cite{Garrido_Merchan_2023}. Fine-tuning involves re-training the model (or part of it) on a corpus of normal log data. For example, LogFiT fine-tunes a BERT-based model toward learning the linguistic structure and sequential patterns of normal log data. Also, training with log-specific goals like Masked Log Key Prediction (MLKP), which helps the model learn the usual structure of normal logs \cite{almodovar-etal-2022-language}.  This large initial model is often referred to as a foundation model or base model \cite{PreLog}.  
+
+PLMs rely on tokenizers, such as the WordPiece tokenizer used by BERT, to convert raw text input into numerical token IDs. In log analysis, pre-trained models can apply their tokenizer without requiring a separate log parser, preserving text that might otherwise be lost \cite{LAnoBERT}. These models generate numerical vector representations (embeddings) that capture the meanings and patterns of language. For classification tasks, a single vector, such as the one associated with the special [CLS] token, is often used to represent the entire input sequence \cite{MLAD}. Models like BERT utilize a multi-layer bidirectional Transformer encoder that processes text by considering both the left and right context of every token simultaneously \cite{Garrido_Merchan_2023}. This results in highly effective contextualized embeddings, essential for deep linguistic structure understanding \cite{almodovar-etal-2022-language}.
+
+\subsubsection{Semantic Representation in Log Analysis}
+Semantic representation is the process of converting textual logs into numerical vectors that capture the intrinsic meaning and context. This is crucial for analysis because it allows models to be robust and less invariant to changes in log content that occur over time (log instability) due to software updates, it also leads to better generalization for anomaly detection models, especially when encountering slightly varied or previously unseen log messages \cite{robust}. Good embeddings should be distinguishable (capturing meaningful differences between events, e.g., "VM Create finished" versus "VM Fatal error") and show tolerance (capturing similarity between different messages that have the same core meaning, e.g., "VM Create finished" versus "VM Create completed") \cite{robust}.
+
+While traditional vectorization like Word2Vec maps semantic closeness, more specialized methods such as template2Vec explicitly encode finer-grained semantics, including synonyms and antonyms, to better differentiate log events \cite{NLPLogMining, MLAD}. Modern PLMs like BERT advance this capability significantly by providing contextualized embeddings, where a token’s vector representation is dynamically influenced by its surrounding text. This contextual understanding is pivotal for anomaly detection: models trained exclusively on normal log sequences learn these expected patterns, and when an abnormal sequence is introduced, it deviates from the learned context, generating a high prediction error \cite{almodovar-etal-2022-language,LAnoBERT}. This approach overcomes a critical failure of methods reliant on simple template indexes, which often miss semantic relationships (e.g., treating two semantically similar templates as completely different) and thereby fail to capture complex sequential patterns, leading to false alarms \cite{LogAnomaly}. By leveraging the rich linguistic intelligence of PLMs, models can operate directly on raw or minimally processed text, effectively bypassing the need for a rigid, resource-intensive log parser and avoiding the loss of information that occurs when forcing text into predefined templates \cite{almodovar-etal-2022-language, HierarchicalTransformers}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Explainable AI (XAI) Techniques}
@@ -112,4 +178,5 @@ Computational Cost & Generally faster for local explanations. & Computationally 
 XAI techniques are applied in security domains such as anomaly detection using system logs. Modern log anomaly detection models like LogFiT and LAnoBERT often use fine-tuned, pre-trained BERT-based language models to learn the linguistic structure and sequential patterns of normal log data \cite{LAnoBERT, LogFiT}. In this context, explanations serve to validate alerts and understand why a sequence of logs was flagged as anomalous. LIME and SHAP are used to assign relevance scores to individual log events within an anomalous sequence, helping analysts evaluate model-generated alarms. DeepAID takes a contrastive approach by identifying the nearest normal sample corresponding to the anomalous input, highlighting the specific event that caused the anomalous prediction by showing differences between the anomaly and the reference normal log \cite{DeepAID}. In hybrid systems, specialized models extract attention weights from Transformer layers to visualize which log tokens or sequences were most critical to the anomaly prediction \cite{MLAD}.
 
 HuntGPT, an intrusion detection dashboard, integrates a Random Forest classifier with SHAP and LIME to explain predictions, coupled with a GPT-3.5 Turbo conversational agent to deliver insights in natural language format \cite{ali2025}. Similarly, the AnomalyExplainerBot framework uses conversational AI along with visualization tools like BERTViz and Captum (which provides feature attribution) to explain LLM-based anomaly detection decisions on log data \cite{AnomalyExplainer}. 
+
 
