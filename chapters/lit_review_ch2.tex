@@ -1,6 +1,8 @@
-\section{Background}\label{chapter:lit-review}
+\section{Literature Review}\label{chapter:lit-review}
 
-\subsection{Log-Based Anomaly Detection}
+This chapter surveys the foundational concepts and existing research that underpin the proposed Sec-LogLLM architecture. It begins with an examination of log-based anomaly detection, tracing the evolution from traditional rule-based and statistical methods to modern deep learning approaches. The review then explores the integration of Large Language Models into cybersecurity, discussing their capabilities and practical deployment challenges. Finally, the chapter examines Explainable AI techniques relevant to security applications, identifies the research gap that motivates this work, and positions the proposed methodology within the existing literature.
+
+\subsection{Log-Based Anomaly Detection}\label{sec:log-ad}
 
 Log files provide detailed, chronological records of system events, including warnings, errors, configuration changes, and user actions \cite{almodovar-etal-2022-language, DeepLog, aws_log_files, LogFormer}. As modern systems grow in scale and complexity, logs have become essential for performance monitoring, security auditing, transaction tracing, and fault diagnosis \cite{LogCTBL}. Log anomaly detection aims to identify deviations from normal log patterns that may indicate malicious activity or system malfunctions. Detecting such anomalies is critical for maintaining system reliability and mitigating the financial and operational risks associated with cyberattacks, which are estimated to cost trillions of euros annually \cite{europeanparliament2024cybercrime}.
 
@@ -9,37 +11,39 @@ Second, Logs are typically unstructured or semi-structured text files generated 
 Finally, for anomaly detection to be useful, it must be timely, requiring decisions to be made in a streaming fashion to allow users to intervene in ongoing attacks or performance issues. Offline methods that require multiple passes over the entire log data are unsuitable for real-time security monitoring \cite{DeepLog}.
 
 
-\subsubsection{Traditional Methods}
+\subsubsection{Traditional Approaches}
+Early log anomaly detection efforts relied heavily on human expertise \cite{LogCTBL}. As the volume of logs grew, research shifted toward automated, data-driven methods, broadly categorized into rule-based systems and statistical approaches, many of which depend on logs first being converted into a structured format through a process known as log parsing \cite{Drain}.
 
-Early log anomaly detection efforts relied heavily on human expertise \cite{LogCTBL}. As the volume of logs grew, research shifted toward automated, data-driven methods, broadly categorized into rule-based systems and statistical approaches, many of which depend on logs first being converted into a structured format through a process known as log parsing \cite{Drain}. Log parsing is a critical precursor step where raw, unstructured log messages are transformed into structured data, typically by extracting a constant part, called the log template (or log key), and identifying the variable parts (parameters). The parser Spell, for example, is an online streaming parser that utilizes the Longest Common Subsequence (LCS) technique to dynamically identify and update log patterns. 
+\paragraph*{Parsing}
+Log parsing as discussed earlier represents the initial stage of preprocessing in the log analysis pipeline, it aims to produce structured input for ML algorithms. The primary role of log parsing is structural extraction, this process converts the raw log content into a structured event description. Drain is an effective online log parser designed to process logs accurately and efficiently in a streaming and timely manner. It incrementally cluster incoming log messages by identifying their constant (template) structure and separating variable parts (parameters). To accelerate the searching process needed to match a new log to an existing log group, Drain utilizes a fixed depth parse tree \cite{Drain}. Other parsers exist, such as the earlier mentioned Spell, which uses Longest Common Subsequence (LCS) technique to dynamically identify and update log patterns \cite{Spell}.
 
-Rule-based methodologies were among the first attempts to automate log analysis to reduce human error. These methods typically rely on explicitly defined rules, patterns, or known indicators of abnormal behavior, often requiring specific domain knowledge from human experts. Early rule-based systems focused on matching specific keywords (e.g., "error," "failed") or using regular expressions to flag anomalous log entries \cite{robust}. However, relying solely on keywords or structural features often prevents a large portion of log anomalies from being detected and can lead to unnecessary alarms (alarm fatigue) if the system constantly evolves \cite{robust,LogAnomaly}. Furthermore, manually designing and maintaining regular expressions is prohibitive given the rapid increase in log volume and frequent system updates \cite{Drain}.
-Invariant mining is another traditional approach that captures co-occurrence patterns between different log keys \cite{DeepLog,LogAnomaly}. This method defines a window (time or session based) and detects whether certain mined quantitative relationships, or invariants, hold true within that window (e.g., ensuring that the count of "file open" logs equals the count of "file close" logs in a normal condition) \cite{LogAnomaly}. IM is typically characterized as an unsupervised offline method \cite{DeepLog}.
+\paragraph*{Rule-based \& Statistical Methods}
+Rule-based methodologies were among the first attempts to automate log analysis to reduce human error. These methods typically rely on explicitly defined rules, patterns, or known indicators of abnormal behavior, often requiring specific domain knowledge from human experts \cite{robust}. However, relying solely on keywords or structural features often prevents a large portion of log anomalies from being detected and can lead to unnecessary alarms (alarm fatigue) if the system constantly evolves \cite{robust,LogAnomaly}.
 
-Statistical methods leverage mathematical principles to identify normal patterns and flag deviations statistically likely to be anomalous. These methods typically operate on numeric vector representations of logs, often using only log keys and their counts rather than parameter values. Most rely on initial log parsing to convert raw messages into structured, numeric representations such as event count vectors \cite{SystemLog, DeepLog}. PCA is a linear transformation technique that converts correlated variables into uncorrelated principal components \cite{LAnoBERT, geron2019hands}. In log analysis, PCA operates at the session level, where log entries are grouped by identifiers (e.g., block\_id in HDFS) and converted into event count vectors recording log key frequencies \cite{SystemLog}. It then projects this high-dimensional counting matrix into a lower-dimensional space by identifying components capturing the most variance \cite{LogCTBL}. PCA produces a normal space ($S_n$) from the first $k$ principal components and an anomaly space ($S_a$) from the remaining dimensions. Anomalies are detected by measuring each session’s projection length onto $S_a$ using the Squared Prediction Error (SPE) \cite{SystemLog, robust, DeepLog}.
+Invariant mining is another traditional approach that captures co-occurrence patterns between different log keys \cite{DeepLog,LogAnomaly}. This method defines a window (time or session based) and detects whether certain mined quantitative relationships, or invariants, hold true within that window. Furthermore, invariant mining is typically characterized as an unsupervised offline method.
 
-Clustering algorithms group similar data instances to identify patterns or outliers \cite{alammar2024hands, geron2019hands}. LogCluster is an unsupervised method that groups textually similar log messages using IDF-scaled vectorization to build a knowledge base of normal and abnormal clusters \cite{SystemLog, LogCTBL}. Sequences are classified as anomalous if their distance to the nearest cluster centroid exceeds a threshold \cite{LogCTBL}. Density-based approaches like SLCT group frequently occurring messages into clusters representing common patterns, treating entries outside these clusters as potential anomalies \cite{LogHound}. HDBSCAN extends this approach and is sometimes used to provide pseudo-labels for semi-supervised learning \cite{LogCTBL}.
+Statistical methods leverage mathematical principles to identify normal patterns and flag deviations statistically likely to be anomalous. These methods typically operate on numeric vector representations of logs, often using only log keys and their counts rather than parameter values \cite{SystemLog, DeepLog}. PCA is a linear transformation technique that converts correlated variables into uncorrelated principal components \cite{LAnoBERT, geron2019hands}. In log analysis, PCA operates at the session level, where log entries are grouped by identifiers and converted into event count vectors recording log key frequencies \cite{SystemLog}.
 
+Clustering algorithms group similar data instances to identify patterns or outliers \cite{alammar2024hands, geron2019hands}. LogCluster is an unsupervised method that groups textually similar log messages using IDF-scaled vectorization to build a knowledge base of normal and abnormal clusters \cite{SystemLog, LogCTBL}.
 
-
-
-\subsubsection{Machine Learning Approaches}
-
-Following traditional statistical and rule-based methods, log anomaly detection quickly adopted general Machine Learning (ML) algorithms. These approaches rely heavily on the preceding log parsing and vectorization steps to transform unstructured log files into numerical features \cite{almodovar-etal-2022-language}. Traditional ML techniques are generally categorized into supervised models, which require labeled data, and unsupervised models, which are crucial given that log data is overwhelmingly unlabeled in real-world scenarios \cite{robust,LAnoBERT}.
-
-
-Traditional machine learning algorithms require structured, vectorized representations of logs, typically event count matrices derived from parsed log templates. Support Vector Machines (SVM) is a flexible model capable of classification and outlier detection. One-Class SVM (OCSVM) variant is trained only on normal data to identify anomalies that fall outside a learned boundary \cite{oneclasssvm,geron2019hands}. Random Forests (RF) is an ensemble method that builds multiple decision trees on random subsets of features and data. RF models are effective with minimal parameter tuning and often outperform other classifiers in log anomaly detection \cite{muller2016introduction,ali2025}. Isolation Forest (iForest) is a tree-based unsupervised algorithm that isolates observations distinct from the remaining data. Unlike clustering methods that seek dense regions, iForest forms an ensemble of decision trees where outliers are isolated more quickly than normal instances \cite{IsolationForest,LAnoBERT,geron2019hands}.
+Following traditional statistical and rule-based methods, log anomaly detection quickly adopted general Machine Learning (ML) algorithms. Support Vector Machines (SVM) is a flexible model capable of classification and outlier detection. One-Class SVM (OCSVM) variant is trained only on normal data to identify anomalies that fall outside a learned boundary \cite{oneclasssvm,geron2019hands}. Random Forests (RF) is an ensemble method that builds multiple decision trees on random subsets of features and data \cite{muller2016introduction,ali2025}. Isolation Forest (iForest) is a tree-based unsupervised algorithm that isolates observations distinct from the remaining data \cite{IsolationForest,LAnoBERT,geron2019hands}.
 
 
-\subsubsection{Deep Learning Models}
+\subsubsection{Deep Learning Era}
 
 Deep learning approaches use neural networks to automatically learn representations from log sequences, treating logs analogously to natural language. These models typically follow a pipeline of preprocessing, parsing, vectorization, and neural network classification \cite{hashemi2025}.
-DeepLog, proposed by Du et al. (2017), uses Long Short-Term Memory networks to learn normal execution patterns through a forecasting-based self-supervised approach. The model predicts the probability distribution of the next log key given a history of preceding keys derived from parsing tools like Spell \cite{DeepLog,Spell,robust}. An incoming log key is classified as normal if it falls within the top $g$ candidates with the highest predicted probabilities, enabling detection at the granular per-log-entry level \cite{DeepLog,LogCTBL}.
-LogBERT, proposed by Guo et al. (2021), applies Bidirectional Encoder Representations from Transformers (BERT) to log anomaly detection. It encodes each log key using bidirectional self-attention, capturing dependencies across entire sequences \cite{LogBERT}. LogBERT is trained solely on normal log data using two self-supervised objectives: Masked Log Key Prediction (MLKP), which predicts masked log keys to learn normal patterns, and Volume of Hypersphere Minimization (VHM), which encourages embeddings of normal sequences to cluster closely in latent space \cite{LogCTBL,LAnoBERT,LogBERT}. This approach consistently outperforms LSTM-based methods due to BERT's stronger contextual understanding \cite{LAnoBERT}.
 
-Attention mechanisms, introduced by Vaswani et al. (2017) in \textit{"Attention Is All You Need"}, enable models to dynamically weigh the importance of different elements within input sequences \cite{AttentionIsAllYouNeed}. In Transformer models like LogBERT, multi-head self-attention enables each log key to attend to every other key, producing context-aware embeddings that capture semantic and sequential relationships \cite{LogBERT}. Beyond Transformers, attention has been integrated into LSTM-based models like LogRobust for improved robustness, and hybrid architectures like LogCTBL that combine convolutional, recurrent, and attention layers \cite{robust,LogCTBL}. Attention weights can also provide interpretability by revealing which tokens influenced predictions, though their reliability as explanatory tools remains debated \cite{AttentionNotExplanation}.
+\paragraph*{Sequential Models}
+DeepLog, proposed by Du et al. (2017) \cite{DeepLog}, uses Long Short-Term Memory networks to learn normal execution patterns through a forecasting-based self-supervised approach. The model predicts the probability distribution of the next log key given a history of preceding keys derived from parsing tools like Spell \cite{Spell,robust}. An incoming log key is classified as normal if it falls within the top $g$ candidates with the highest predicted probabilities, enabling detection at the granular per-log-entry level \cite{LogCTBL}.
 
-Deep learning models consistently outperform traditional statistical methods and classical ML approaches, with superior F1 scores attributed to their ability to learn semantic embeddings and model complex sequential structures \cite{almodovar-etal-2022-language}. Table 1 compares representative models across benchmark datasets.
+\paragraph*{Transformer Models}
+LogBERT, proposed by Guo et al. (2021), applies Bidirectional Encoder Representations from Transformers (BERT) to log anomaly detection. It encodes each log key using bidirectional self-attention, capturing dependencies across entire sequences \cite{LogBERT}. LogBERT is trained solely on normal log data using two self-supervised objectives: Masked Log Key Prediction (MLKP) and Volume of Hypersphere Minimization (VHM) \cite{LogCTBL,LAnoBERT,LogBERT}.
+
+LogGPT leverages the Generative Pre-trained Transformer (GPT-2) architecture, which is based on the Transformer decoder. This decoder-only structure is inherently autoregressive and operates strictly unidirectionally \cite{LogGPT}. During inference, the model detects anomalies based on its forecasting accuracy. A sequence is flagged as abnormal if the actual incoming log key is not included in the Top-K predicted log keys generated at that position.
+
+Attention mechanisms enable models to dynamically weigh the importance of different elements within input sequences \cite{AttentionIsAllYouNeed}. In Transformer models like LogBERT, multi-head self-attention enables each log key to attend to every other key, producing context-aware embeddings \cite{LogBERT}. Beyond Transformers, attention has been integrated into LSTM-based models like LogRobust for improved robustness \cite{robust,LogCTBL}.
+
+Deep learning models consistently outperform traditional statistical methods and classical ML approaches, with superior F1 scores attributed to their ability to learn semantic embeddings and model complex sequential structures \cite{almodovar-etal-2022-language}. Table \ref{tab:models} compares representative models across benchmark datasets.
 
 \begin{table}[H]
 \centering
@@ -55,98 +59,65 @@ LogFiT \cite{almodovar-etal-2022-language} & Transformer (Fine-tuned BERT) & No 
 DeepLog \cite{DeepLog} & LSTM-based (Forecasting) & Yes (Spell) & 0.7734 & 0.8612 & 0.9308 \\
 LogBERT \cite{LogBERT} & Transformer (BERT-MLKP/VHM) & Yes (Drain) & 0.8232 & 0.9083 & 0.9664 \\
 LogFormer \cite{LogFormer} & Transformer (Pre-train/Tuning) & Yes (Drain) & 0.9800 & 0.9700 & 0.9900 \\
+LogGPT \cite{LogGPT} & Transformer (GPT-2 Causal) & Yes (Drain) & 0.9010 & 0.9580 & 0.9860 \\
 \hline
 \end{tabular}
 \caption{Comparison of representative log anomaly detection models.}
+\label{tab:models}
 \end{table}
 
-\subsection{NLP Foundations for Log Analysis}
-
-Although system logs differ from traditional natural language, many NLP principles, such as tokenization, contextual modeling, and semantic representation, offer powerful tools for automated understanding of log messages \cite{NLPLogMining, NaturalAustin}. System logs, while not exactly written for human communication, can be viewed as linguistic artifacts \cite{HierarchicalTransformers}. Each log entry is a textual description of an event produced by the program’s defined logic. Similar to sentences in natural language, a log message consists of tokens (words, symbols, parameters), and sequences of logs form structured narratives of system behavior \cite{DeepLog}.
-
-However, unlike natural language, logs exhibit several distinguishing characteristics. They are semi-structured and originate from source code, resulting in far smaller and more rigid vocabularies than human language. Log messages contain a diverse range of token types, identifiers, IP addresses, timestamps, and domain-specific terminology, creating a unique distribution of tokens. Furthermore, logs from different subsystems vary significantly in style, reflecting the distinct developer habits and architectural designs employed in each component \cite{HierarchicalTransformers,DeepLog}.
-
-Because logs are free-text yet follow domain-specific `grammar,' traditional frameworks treated log parsing as a mandatory precursor, converting text into fixed templates for statistical counting \cite{PreLog}. While this supports rule-based pipelines, template-based representations come with limitations: they assume a fixed set of events and often discard the semantic nuance between similar messages. In contrast, modern \textit{semantic and language-based} approaches move beyond simple template matching. By leveraging techniques like semantic embedding and Transformer-based modeling, these approaches capture the intrinsic meaning of log events and the complex contextual dependencies between them, regardless of whether the input is raw text or semantically enriched templates.
-
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{|l|p{3.5cm}|p{4cm}|p{4cm}|}
-\hline
-\textbf{Approach} & \textbf{Representation Basis} & \textbf{Advantage} & \textbf{Limitation} \\
-\hline
-Traditional / Statistical & Discrete IDs or Count Vectors & Computationally efficient; easy to interpret & Ignores semantics; treats similar errors as distinct; brittle to updates \\
-\hline
-Deep / NLP-based & Semantic Vectors / Contextual Embeddings & Captures meaning (synonyms); robust to log evolution & Higher computational complexity; requires training data \\
-\hline
-\end{tabular}
-\caption{Comparison of traditional statistical representations versus modern NLP-based log representations.}
-\label{tab:template-vs-language}
-\end{table}
-
-These NLP-driven approaches address the rigidity of traditional methods by leveraging contextualized representations, which are significantly more robust to variations in log content over time \cite{robust}.
+\textbf{Limitation:} These models prioritize predictive performance (e.g., F1 scores) but often function as opaque "black boxes," failing to provide actionable explanations for why a specific log sequence is flagged as anomalous. Furthermore, index-based architectures (e.g., DeepLog) discard rich textual semantics by converting logs into rigid templates. Even advanced reconstruction-based models can suffer from the "identical shortcut" problem, where they learn to reconstruct anomalies as well as normal data, leading to detection failures that aggregate metrics like F1 may mask \cite{MLAD}.
 
 
-\subsubsection{Log Parsing Techniques}
-Log parsing as discussed earlier represents the initial stage of preprocessing in the log analysis pipeline, it aims to produce structured input for ML algorithms. The primary role of log parsing is structural extraction, this process converts the raw log content into a structured event description. Drain is an effective online log parser designed to process logs accurately and efficiently in a streaming and timely manner.It incrementally cluster incoming log messages by identifying their constant (template) structure and separating variable parts (parameters) . To accelerate the searching process needed to match a new log to an existing log group, Drain utilizes a fixed depth parse tree \cite{Drain}. Other parsers exist, such as the earlier mentioned Spell, which uses Longest Common Subsequence (LCS) matching to dynamically infer structural patterns \cite{Spell}.
+\subsection{Large Language Models (LLMs) in Cybersecurity}
+The integration of Large Language Models (LLMs) into cybersecurity represents a paradigm shift from rigid, rule-based systems to dynamic, semantic-aware analysis. While traditional deep learning methods often struggle to capture the rich information embedded in log data organized as natural language, LLMs leveraging transformer architectures offer superior language comprehension abilities \cite{LogLLM}.
 
-\subsubsection{Pre-trained Language Models for Logs}
-The application of Pre-trained Language Models (PLMs), which utilize the Transformer architecture, has fundamentally revolutionized Natural Language Processing (NLP) \cite{NaturalAustin}. These models rely on self-supervised learning methods and are trained on massive data corpora, such as English Wikipedia and books, to learn deep, generalized representations of sequential data \cite{almodovar-etal-2022-language}. This paradigm, initially designed for human language, has been successfully adapted for log analysis, recognizing system logs as a distinct type of natural language sequence that adheres to its own grammar and structural patterns \cite{DeepLog, NLPLogMining}. These models, such as the earlier discussed BERT, are commonly used in frameworks like LogFiT \cite{LogFiT}. They employ the Masked Language Modeling (MLM) objective, where the model is trained to reconstruct deliberately hidden or masked tokens within a sequence. By utilizing the Transformer's structure, these models access contextual information from both the left and right sides of a token simultaneously \cite{LogBERT,LogFiT}. For sequence-level tasks like binary classification (normal/anomaly), the special [CLS] token, conventionally placed at the beginning of the input sequence, is often used to aggregate the resulting representation \cite{Garrido_Merchan_2023}. Architectures like the Generative Pre-trained Transformer (GPT) model are autoregressive \cite{AttentionIsAllYouNeed}. These models typically use a Causal Language Modeling (CLM) objective and operate unidirectionally, attending only to preceding events to predict the next token in the sequence \cite{LogGPT}. This unidirectional process, which involves forecasting the next element based on historical context, closely mirrors the underlying flow utilized by prediction-based log analysis tools such as DeepLog \cite{DeepLog}. Ideally, these advanced models leverage semantic embeddings, rather than simple index lookups, to represent log events \cite{robust}.
+\subsubsection{Capability Shift: From Pattern Matching to Semantic Reasoning}
+Historically, log analysis relied on the invariant assumption, which presumes that log templates do not change and that matching keywords (e.g., "error") is sufficient for detection \cite{robust}. This approach often fails because software evolution leads to frequent changes in logging statements\cite{PreLog}.
 
+\begin{itemize}
+    \item \textbf{Semantic Understanding}: Unlike traditional approaches that rely on log templates, which can result in a loss of contextual information, LLMs enable a move toward semantic reasoning. For instance, models like LogFiT use BERT to learn the linguistic structure and sequential patterns of normal log data, allowing the system to "understand" the syntax and semantics of logs rather than just matching fixed patterns \cite{LogFiT}.
+    \item \textbf{Contextual Embeddings}: Pre-trained models generate contextualized word embeddings, where a token's representation changes based on its surrounding context. This allows the model to distinguish between semantically different events even if they share similar words, for example, distinguishing between "VM Create finished" and "VM Fatal error" \cite{robust}.
+    \item \textbf{Generalization}: LLMs demonstrate symbolic reasoning capabilities that extend beyond semantic priors, allowing them to adapt to new input-label mappings and handle unstable log data where new log events emerge over time \cite{XAImersha2024}.
+\end{itemize}
 
-\subsubsection{Semantic Representation in Log Analysis}
-Semantic representation is the process of converting textual logs into numerical vectors that capture the intrinsic meaning and context. This is crucial for analysis because it allows models to be robust against log instability (changes in content due to software updates) and improves generalization to previously unseen log messages \cite{robust}. Good embeddings should be distinguishable (capturing meaningful differences between events, e.g., "VM Create finished" versus "VM Fatal error") and show tolerance for synonymous variations (capturing similarity between different messages that have the same core meaning, e.g., "VM Create finished" versus "VM Create completed") \cite{robust}. While traditional vectorization like Word2Vec maps semantic closeness, more specialized methods such as Template2Vec explicitly encode finer-grained semantics, including synonyms and antonyms, to better differentiate log events \cite{NLPLogMining, MLAD}. Modern Transformer-based architectures (such as BERT and GPT) advance this capability significantly by providing contextualized embeddings, where a token's vector representation is dynamically influenced by its sequence history. This contextual understanding is pivotal for anomaly detection: models trained exclusively on normal log sequences learn these expected patterns, and when an abnormal sequence is introduced, it deviates from the learned context, generating a high prediction error \cite{almodovar-etal-2022-language,LAnoBERT}. This approach overcomes a critical failure of methods reliant on simple template indexes, which often miss semantic relationships (e.g., treating two semantically similar templates as completely different) and thereby fail to capture complex sequential patterns, leading to false alarms \cite{LogAnomaly}. Crucially, semantic embeddings bridge the gap between rigid parsing and interpretability; unlike simple index-based approaches, semantic vectorization allows the model to recognize functional similarities between distinct error templates, a capability essential for explaining anomalies based on meaning rather than just statistical rarity \cite{almodovar-etal-2022-language, HierarchicalTransformers}.
+\subsubsection{Applications}
+The application of LLMs in cybersecurity extends beyond simple anomaly detection to complex tasks requiring synthesis and generation.
 
+\begin{itemize}
+    \item \textbf{Threat Intelligence Summarization}: LLMs can process unstructured data, such as threat reports and logs, to extract meaningful insights \cite{NLPFrameworks}. Tools like HuntGPT integrate LLMs to present threat insights in an easily understandable format via a conversational agent, improving analyst comprehension of alerts. This capability is critical for Security Operations Centers (SOCs), where analysts must triage massive volumes of data \cite{AnomalyExplainer}.
+    \item \textbf{Vulnerability Detection}: LLMs are increasingly used to map vulnerabilities (CVEs) to adversarial tactics (e.g., MITRE ATT\&CK). By fine-tuning models like SecBERT, systems can classify how a vulnerability might be exploited based on its description. Furthermore, advanced models like SecureBERT 2.0 support automated vulnerability assessment by interpreting complex document structures and source code artifacts \cite{electronics14204094}.
+    \item \textbf{Automated Remediation and Patching}: Generative models can assist in remediation by producing actionable responses and code. For example, specialized models like StarCoder2 focus on generating code, which is essential for automated patching workflows. In practical deployments, LLMs can guide users through penetration testing procedures and generate necessary code steps for attacks or defenses. This capability reduces manual effort and speeds up the remediation of identified threats \cite{AnomalyExplainer}.
+\end{itemize}
 
+\subsubsection{Challenges}
+Despite their potential, deploying LLMs in live cybersecurity environments introduces significant hurdles regarding performance and reliability.
 
+\paragraph{1. Computational Cost and Inference Latency}
+\begin{itemize}
+    \item \textbf{Latency}: Inference latency is a critical bottleneck for real-time log streams. While traditional log analysis tools struggle with volume, LLM-based solutions face high latency due to the complexity of transformer architectures. For instance, using the OpenAI API can result in latencies ranging from hundreds of milliseconds to seconds, which is often too slow for real-time AIOps scenarios \cite{PreLog}.
+    \item \textbf{Resource Intensity}: Privacy-preserving inference (PPI) for transformers is particularly slow; for example, a BERT-base model can take over 70 seconds to inference a single sample using Secure Multi-Party Computing (SMPC), compared to less than a second for plaintext inference. This computational heaviness makes deployment on edge devices or in latency-sensitive environments difficult \cite{PrivateTransformerInference}.
+\end{itemize}
 
+\paragraph{2. Token Limits and Context Windows}
+\begin{itemize}
+    \item \textbf{Context Restrictions}: Transformer models have a limit on the number of tokens they can process at once, known as the context window (e.g., 512 tokens for standard BERT, 4096 for Longformer) \cite{LogFiT}.
+    \item \textbf{Analysis Fragmentation}: Long log sequences often exceed these limits. A single log sequence can contain numerous templates, generating an excessive number of tokens that surpass the model's memory capacity. This restricts the analysis of long-term dependencies in system behavior unless specialized architectures like Longformer are employed to handle larger log paragraphs \cite{almodovar-etal-2022-language}.
+\end{itemize}
 
+\paragraph{3. Hallucination and the Need for Grounding}
+\begin{itemize}
+    \item \textbf{Inventing Attacks}: A major risk is hallucination, where LLMs confidently generate incorrect or non-existent information. In a security context, a model might invent attacks that did not happen or provide incorrect remediation advice \cite{PrivateTransformerInference}.
+    \item \textbf{Fine-tuning Risks}: Interestingly, fine-tuning LLMs on new knowledge can sometimes increase hallucinations because the model may struggle to acquire new factual knowledge that conflicts with its pre-training \cite{LLMLogAnomaly}. 
+    \item \textbf{Grounding (RAG)}: To mitigate this, there is a need for grounding via Retrieval-Augmented Generation (RAG). RAG systems retrieve relevant, up-to-date information (such as specific log entries or threat intelligence) to provide the LLM with factual context, thereby reducing hallucinations and improving the reliability of the output \cite{alammar2024hands}.
+\end{itemize}\subsection{Explainable AI (XAI) for Time-Series \& Security}
 
+Explainable Artificial Intelligence (XAI) encompasses methods that help users interpret and understand how machine learning models make their decisions, thereby improving transparency \cite{XAImersha2024,hashemi2025}. The need for explainability is paramount in high-stake security applications such as anomaly detection \cite{SoKBhusal_2023,hashemi2025}. A fundamental challenge in implementing AI, particularly in high-stakes domains, is managing the tension between model accuracy and interpretability \cite{Unified}.
 
+\subsubsection{Post-Hoc Methods}
+LIME (Local Interpretable Model-agnostic Explanations) provides explanations for individual model predictions by learning a simple, interpretable surrogate model locally around the specific prediction instance \cite{WhyShouldITrustYou}. The core process involves perturbing the input instance to generate new data samples, obtaining predictions from the black-box model, and training a simple model on the weighted samples. While LIME is efficient, the authors note that its explanations can sometimes be unreliable.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Explainable AI (XAI) Techniques}
-
-Explainable Artificial Intelligence (XAI) encompasses methods that help users interpret and understand how machine learning models make their decisions, thereby improving transparency \cite{XAImersha2024,hashemi2025}. The goal of XAI is to build comprehension regarding the influences on a model, how that influence occurs, and where the model succeeds or fails \cite{XAImersha2024}. The need for explainability is paramount in high-stake security applications such as anomaly detection, vulnerability detection, and malware detection \cite{SoKBhusal_2023,hashemi2025}. Deep learning models, while achieving high accuracy in security domains, often function as black boxes, obscuring the features and factors that lead to their predictions. This opacity leads to uncertainty and distrust, especially when an incorrect prediction carries severe consequences \cite{SoKBhusal_2023}.
-
-A fundamental challenge in implementing AI, particularly in high-stakes domains, is managing the tension between model accuracy and interpretability \cite{Unified}.  Highly interpretable models, such as decision trees, may be easy for humans to understand but often struggle to match the performance of complex black-box models, especially when dealing with unstructured raw data like system logs \cite{SoKBhusal_2023}. Consequently, achieving a usable XAI solution requires finding a balance where the interpretability gained justifies the complexity introduced. Developers must choose between designing intrinsically interpretable models (ante-hoc explanation) or applying post-hoc explanation methods to analyze the decisions of highly accurate black-box models.
-
-\subsubsection{SHAP and Attention Mechanisms}
-
-
-SHapley Additive exPlanations (SHAP) is a post-hoc method that generates local explanations for the predictions of any ML model \cite{SoKBhusal_2023} by viewing the explanation process through the lens of game theory, specifically utilizing Shapley values \cite{Unified}. SHAP introduces a group of methods that explain a model’s prediction by adding up the effects of each feature, in which the explanation model is a linear function of binary variables indicating feature presence or absence \cite{XAImersha2024, Unified}. SHAP values uniquely satisfy desirable properties: local accuracy (the explanation model matches the original prediction), missingness (features missing in the input have no impact), and consistency. SHAP assigns an importance value (the Shapley value) to each feature, quantifying its contribution to the model's output by averaging its marginal contribution across all possible subsets of other features \cite{Unified}. Deep SHAP is a model-specific approximation method designed to leverage the compositional nature of deep networks to rapidly estimate SHAP values \cite{Unified}.
-
-
-Transformer models rely on attention mechanisms that allow models to selectively focus on different parts of the input sequence to compute representations \cite{SoKBhusal_2023,XAImersha2024}. The attention function maps a query and a set of key-value pairs to an output, calculated as a weighted sum of values, where weights are derived from the compatibility score between the query and corresponding key \cite{AttentionIsAllYouNeed,geron2019hands}. These attention weights can be leveraged as a form of explanation by quantifying the importance assigned by the model. When used for explainability, the magnitude of the attention weight assigned to a specific token or segment indicates its perceived significance to the model's prediction \cite{XAImersha2024}.
-
-
- Several tools have been developed to map attention scores back onto input data. BERTViz \cite{BertViz} is an open-source tool for visualizing multi-head self-attention in BERT-based models, providing views at the attention-head, model, and neuron levels \cite{AnomalyExplainer,BertViz}. Other visualizations, such as Attention-Viz, highlight relationships between query and key embeddings for global analysis of patterns across sequences \cite{AttentionIsAllYouNeed}. In log analysis using Transformer-based models, attention visualization can show which tokens or templates receive high attention weights during anomaly detection tasks \cite{SoKBhusal_2023}.  The use of attention weights as explanations is controversial, with researchers debating their faithfulness and stability \cite{SoKBhusal_2023}. The argument that "Attention is not Explanation" \cite{AttentionNotExplanation} claims that if alternative sets of attention weights can be found that produce near-identical model predictions, then the original attention distribution cannot be the exclusive, faithful explanation for that prediction \cite{AttentionNotExplanation}. If the goal is to achieve explainability by providing a reasonable justification for a model’s prediction, the presence of alternative explanations does not necessarily reduce the value of the original one.
-
-\subsubsection{Brief Overview of LIME}
-
-LIME (Local Interpretable Model-agnostic Explanations) provides explanations for individual model predictions by learning a simple, interpretable surrogate model locally around the specific prediction instance \cite{WhyShouldITrustYou}. The core process involves perturbing the input instance to generate new data samples, obtaining predictions from the black-box model for these perturbed samples, weighting them by their proximity to the original instance, and training a simple, interpretable model (often sparse linear regression) on the weighted samples. The weights of this local surrogate model serve as the explanation, indicating the degree to which each input feature contributes to the prediction. LIME aims to minimize a function that balances local fidelity (how accurately the simple model approximates the black-box prediction locally) and the simplicity of the explanation \cite{XAImersha2024}. While LIME is efficient, its explanations can sometimes be unreliable or susceptible to adversarial manipulation, partly because it assumes feature independence \cite{WhyShouldITrustYou}.
+SHapley Additive exPlanations (SHAP) is a post-hoc method that generates local explanations for the predictions of any ML model \cite{SoKBhusal_2023} by viewing the explanation process through the lens of game theory \cite{Unified}. It assigns an importance value (the Shapley value) to each feature, quantifying its contribution to the model's output.
 
 \begin{table}[H]
 \centering
@@ -165,12 +136,50 @@ Computational Cost & Generally faster for local explanations. & Computationally 
 \caption{Comparison of LIME and SHAP methodologies.}
 \end{table}
 
-\subsubsection{Application to Security Domains}
+\subsubsection{Attention Mechanisms}
+Transformer models rely on attention mechanisms that allow models to selectively focus on different parts of the input sequence to compute representations \cite{SoKBhusal_2023,XAImersha2024}. These attention weights can be leveraged as a form of explanation by quantifying the importance assigned by the model \cite{XAImersha2024}.
+Several tools have been developed to map attention scores back onto input data, such as BERTViz \cite{BertViz}. The use of attention weights as explanations is controversial, with researchers debating their faithfulness and stability ("Attention is not Explanation") \cite{AttentionNotExplanation}.
 
-XAI techniques are applied in security domains such as anomaly detection using system logs. Modern log anomaly detection models like LogFiT and LAnoBERT often use fine-tuned, pre-trained BERT-based language models to learn the linguistic structure and sequential patterns of normal log data \cite{LAnoBERT, LogFiT}. In this context, explanations serve to validate alerts and understand why a sequence of logs was flagged as anomalous. LIME and SHAP are used to assign relevance scores to individual log events within an anomalous sequence, helping analysts evaluate model-generated alarms. DeepAID takes a contrastive approach by identifying the nearest normal sample corresponding to the anomalous input, highlighting the specific event that caused the anomalous prediction by showing differences between the anomaly and the reference normal log \cite{DeepAID}. In hybrid systems, specialized models extract attention weights from Transformer layers to visualize which log tokens or sequences were most critical to the anomaly prediction \cite{MLAD}.
-
-HuntGPT, an intrusion detection dashboard, integrates a Random Forest classifier with SHAP and LIME to explain predictions, coupled with a GPT-3.5 Turbo conversational agent to deliver insights in natural language format \cite{ali2025}. Similarly, the AnomalyExplainerBot framework uses conversational AI along with visualization tools like BERTViz and Captum (which provides feature attribution) to explain LLM-based anomaly detection decisions on log data \cite{AnomalyExplainer}. 
-
+\subsubsection{Rationale Generation}  
+Rationale generation involves prompting Large Language Models (LLMs) to articulate the reasoning behind their predictions, a technique prominently known as Chain-of-Thought (CoT) prompting \cite{XAImersha2024, alammar2024hands}. Unlike standard prompting which seeks a direct answer, CoT encourages the model to decompose complex problems into a series of intermediate reasoning steps, effectively mimicking the slower, logical "System 2" mode of human thinking \cite{alammar2024hands}. This capability can be elicited via few-shot prompting, where the model is provided with examples of reasoning, or zero-shot prompting using phrases such as "Let's think step-by-step" \cite{alammar2024hands}.
 
 
-\subsection{Research Gaps and Summary}
+In the cybersecurity domain, researchers have adapted this approach to creating a "Log Chain-of-Thought" (LCoT) for anomaly detection \cite{LogFormer}. Rather than asking the model to detect an anomaly directly, LCoT guides the model to first extract log templates and then determine if anomalies exist based on the relationship between templates and variables; this multi-hop approach has been shown to improve the F1 score of models like ChatGPT compared to direct decision generation \cite{LogFormer}. To further enhance reliability, techniques such as Self-Consistency involve sampling multiple reasoning paths and selecting the final answer via majority vote, while Tree-of-Thoughts (ToT) allows the model to explore and evaluate multiple branching reasoning paths \cite{alammar2024hands}.
+
+However, the validity of these rationales is contested. Critics argue that generated explanations may be plausible post-hoc rationalizations, functioning as invented stories that justify an action, rather than faithful representations of the actual neural processes that produced the prediction \cite{AttentionNotExplanation}. Experiments with counterfactual prompts suggest that intermediate reasoning steps often guide the model to replicate patterns rather than adhere to strict factual logic, raising concerns about the faithfulness of CoT in high-stakes environments \cite{XAImersha2024}.
+
+\subsubsection{The Research Gap} 
+There is a lack of models that provide \textit{intrinsic}, \textit{real-time} explanations for log anomalies without requiring expensive post-hoc analysis. Current literature largely bifurcates into two extremes: highly accurate but opaque deep learning models (e.g., LogBERT, DeepLog) and interpretable but less capable shallow models \cite{LogBERT,DeepLog}. Security practitioners often resort to "post-hoc" explainability techniques like LIME or SHAP \cite{SoKBhusal_2023}. However, these methods suffer from critical flaws in a security context: \begin{enumerate} \item \textbf{Latency}: Generating perturbations for SHAP requires thousands of inference passes, making it prohibitive for real-time SOC monitoring. \item \textbf{Fidelity}: Post-hoc explanations are approximations. They do not reveal the exact decision path the model took, leading to a "trust gap" for analysts. \end{enumerate} Developers must therefore choose between designing intrinsically interpretable models (ante-hoc explanation) or applying post-hoc methods to black-box models. This work targets the missing middle: a model that is \textit{intrinsically} explainable by design, where the "explanation" (the alpha weights) is computed deeply within the forward pass itself \cite{SoKBhusal_2023, MLAD}.
+
+\subsection{Summary \& Position of Methodology}
+
+The preceding review reveals three key findings that collectively define the limitations of log anomaly detection methodologies discussed in this chapter. First, deep learning models such as LogBERT \cite{LogBERT}, DeepLog \cite{DeepLog}, and LogFormer \cite{LogFormer} have demonstrated strong predictive performance, consistently achieving F1 scores above 0.90 on benchmark datasets (Table~\ref{tab:models}). However, these models function as opaque ``black boxes,'' offering no insight into \textit{why} a particular log sequence was flagged as anomalous \cite{MLAD}. Second, post-hoc explainability techniques such as LIME \cite{WhyShouldITrustYou} and SHAP \cite{Unified} can be applied to any model but introduce significant computational overhead. SHAP, for instance, requires thousands of perturbation-based inference passes per prediction, rendering it impractical for real-time Security Operations Centre (SOC) monitoring \cite{SoKBhusal_2023}. Furthermore, these methods produce only approximate explanations that do not faithfully represent the model's internal decision process. Third, while Large Language Models have demonstrated promising semantic reasoning capabilities for security analysis, they face practical deployment challenges including inference latency \cite{PreLog}, context window limitations \cite{almodovar-etal-2022-language}, and a tendency to hallucinate non-existent threats \cite{LLMLogAnomaly}.
+
+To address these compounding limitations, this thesis proposes \textbf{Sec-LogLLM}, a hybrid architecture designed to resolve the tension between detection performance and interpretability. Rather than treating anomaly detection and explainability as separate concerns, Sec-LogLLM integrates three complementary components into a unified pipeline:
+
+\begin{enumerate}
+    \item \textbf{Domain-Specific Semantic Encoding}: A cybersecurity-specialised encoder (SecBERT) extracts contextualised representations from raw log text, capturing domain-specific semantics that template-based approaches like Drain discard \cite{Drain}. This addresses the semantic gap identified in index-based architectures such as DeepLog, which reduce logs to rigid key sequences \cite{MLAD}.
+    \item \textbf{Alpha-Gating Mechanism}: A novel trainable projector assigns a scalar importance weight ($\alpha \in (0,1)$) to each log line within a sequence. These weights provide an \textit{intrinsic}, mathematically grounded importance map that identifies exactly which events contributed to the model's decision. Crucially, unlike SHAP or LIME, these explanations are computed within the forward pass itself at zero additional inference cost \cite{SoKBhusal_2023}.
+    \item \textbf{LLM-Based Reasoning}: A causal language model decoder receives the $\alpha$-weighted log representations and generates structured, human-readable analysis including attack classification, MITRE ATT\&CK mapping, and natural language reasoning. This directly addresses the ``trust gap'' that analysts experience with opaque detection systems \cite{AnomalyExplainer}.
+\end{enumerate}
+
+Table \ref{tab:position} summarises how Sec-LogLLM is positioned relative to the approaches reviewed in this chapter.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Approach} & \textbf{Accuracy} & \textbf{Explainability} & \textbf{Real-Time} & \textbf{Parser-Free} \\
+\hline
+DeepLog / LogBERT & High & None & \checkmark & $\times$ \\
+LIME / SHAP (Post-hoc) & N/A & Approximate & $\times$ & N/A \\
+LLM Direct Prompting & Moderate & Rationale & $\times$ & \checkmark \\
+\textbf{Sec-LogLLM} & \textbf{High} & \textbf{Intrinsic ($\alpha$)} & \checkmark  & \checkmark \\
+\hline
+\end{tabular}
+\caption{Positioning of Sec-LogLLM relative to existing approaches.}
+\label{tab:position}
+\end{table}
+
+By optimising these components end-to-end through a three-stage training strategy, Sec-LogLLM targets the ``missing middle'' identified in the research gap: a model that is intrinsically explainable by design, where the explanation is not an afterthought but an integral part of the prediction pipeline. The following chapter presents the detailed architecture, mathematical formulations, and training methodology of the proposed system.
